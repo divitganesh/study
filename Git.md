@@ -64,5 +64,5 @@ git push origin master
 
 14\.**git stash pop** ->it will pop the file from local to working dir
 
-15\.**git ravert** ->it will undo
+15\.**git revert** ->it will undo
 
