@@ -66,3 +66,86 @@ git push origin master
 
 15\.**git revert** ->it will undo
 
+=====================
+      Java
+
+it is an open source
+
+extension .jar || .java
+
+precent version java24
+
+it is platform independent
+
+java recent version is 24
+
+
+
+java structure 
+
+--------------
+
+class main{
+
+public static void main(String args []){
+
+System.out.print("hi");
+
+}
+
+}
+
+java  ->(JDK,JRE,JVM)
+
+JDK-JDK is used to write and compile code .it contain with(JER,JVM)
+
+JRE-JER is used to run a java application on a system . it contain with (libraries, JVM)
+
+JVM-JVM is used to convert a byte code to system code .
+
+------------
+java data type
+
+java data type is used to predefined the type and size of value
+
+data type
+ 
+->primitive data type(fixed size)-> byte(1),short(2),int(4),long(8),float(4),double(8),char(2),Boolean(1).
+
+->nonprimitive type(not a fixed size)->array,classea.
+-----------
+java variable 
+
+variable is need to unique 
+
+it should not contain with space 
+
+it storage to value 
+
+----------
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
