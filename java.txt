@@ -1,1 +1,216 @@
+     Java
+
+it is an open source
+
+extension .jar || .java
+
+precent version java24
+
+it is platform independent
+
+java recent version is 24
+
+
+
+java structure 
+
+--------------
+
+class main{
+
+public static void main(String args []){
+
+System.out.print("hi");
+
+}
+
+}
+
+java  ->(JDK,JRE,JVM)
+
+JDK-JDK is used to write and compile code .it contain with(JER,JVM)
+
+JRE-JER is used to run a java application on a system . it contain with (libraries, JVM)
+
+JVM-JVM is used to convert a byte code to system code .
+
+------------
+java data type
+
+java data type is used to predefined the type and size of value
+
+data type
+ 
+->primitive data type(fixed size)-> byte(1),short(2),int(4),long(8),float(4),double(8),char(2),Boolean(1).
+
+->nonprimitive type(not a fixed size)->array,classea.
+
+Data Type	Memory Size		Description
+-------------------------------------------------------------------------------
+byte		1 byte		Stores whole numbers from -128 to 127
+short		2 bytes		Stores whole numbers from -32,768 to 32,767
+int		4 bytes		Stores whole numbers from -2,147,483,648 to 2,147,483,647
+long		8 bytes		Stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+
+
+float		4 bytes		Stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
+double		8 bytes		Stores fractional numbers. Sufficient for storing 15 decimal digits
+
+boolean		1 bit		Stores true or false values
+char		2 bytes		Stores a single character/letter or ASCII values
+
+-----------
+java variable 
+
+variable is need to unique 
+
+it should not contain with space 
+
+it storage to value 
+
+eg: int a=10;
+        |->variable
+
+----------
+
+type casting 
+
+type casting is used to convert one primitive type to another primitive type
+
+two type 
+
+widening Casting (automatically) - converting a smaller type to a larger type size
+byte -> short -> char -> int -> long -> float -> double
+
+
+Narrowing Casting (manually) - converting a larger type to a smaller size type
+double -> float -> long -> int -> char -> short -> byte
+
+Automatic type casting
+------------------------
+Ex1
+----
+int mynumber=12;
+double doubleNumber=mynumber;
+
+System.out.println(doubleNumber);
+
+Ex2
+----
+        char ch='Z';
+        int result=ch;//90
+
+        System.out.println(result);
+
+
+
+manually  or Narrowing type casting
+------------------------------------
+
+Ex1:
+----
+  int number=65;
+  char ch=(char)number;
+
+  System.out.println(ch);
+
+Ex2:
+-----
+       double d=3.456;
+        int r=(int)d;
+        System.out.println(r);
+
+
+Operators
+----------
+It is a Symbol used to perform Operations..
+
+Types of Operators
+----------------------
+Arithmetic Operators
+Relational or Comparison Operators
+Logical Operators
+Assignment Operators
+Bitwise Operators
+Ternary Operator
+
+
+Arithmetic Operators
+----------------------
++
+-
+*
+/
+%
+
+Example
+--------
+package com.mypack;
+
+public class OperatorDemo {
+    public static void main(String[] args) {
+        int n1=12;
+        int n2=2;
+        int add=n1+n2;
+        System.out.println(add);
+        System.out.println(n1-n2);
+
+        System.out.println(n1*n2);
+        System.out.println(n1/n2);
+        System.out.println(n1%n2);
+    }
+}
+
+
+Increment operator
+-----------------
+Post Increment
+----------------
+VariableName++;
+
+n1++;//12 13
+        System.out.println(n1);
+
+  //n1++;//12 13
+        System.out.println(n1++);//12 13
+        System.out.println(n1);//13
+
+Pre Increment
+--------------
+++VariableName;
+
+
+ ++n2;//3 3
+        System.out.println(n2);//3
+
+
+
+Example
+----------
+package com.mypack;
+
+public class OperatorDemo {
+    public static void main(String[] args) {
+        int n1=12;
+        int n2=2;
+        int add=n1+n2;
+        System.out.println(add);
+        System.out.println(n1-n2);
+
+        System.out.println(n1*n2);
+        System.out.println(n1/n2);
+        System.out.println(n1%n2);
+        System.out.println("--------------------------------");
+        //n1++;//12 13
+        System.out.println(n1++);//12 13
+        System.out.println(n1);//13
+
+
+
+        System.out.println(++n2);//3 3
+        System.out.println(n2);//3
+        System.out.println(n2++);//3 4
+        System.out.println(n2);//4
+    }
+}
 
