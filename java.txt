@@ -214,3 +214,589 @@ public class OperatorDemo {
     }
 }
 
+
+Scanner Class
+--------------
+Used to get input from the user...
+
+
+java.util Package Name
+Scanner class Name
+
+
+Example
+-------
+package com.mypack;
+
+import java.util.Scanner;
+
+public class ScannerDemo {
+
+
+
+    public static void main(String[] args) {
+
+        //Object Create  className objectName=new ClassName();
+        Scanner sc=new Scanner(System.in);
+//        System.out.println("Enter a number:");
+//        int n=sc.nextInt();
+//
+//        System.out.println("Enter ur salary:");
+//        float salary=sc.nextFloat();
+
+//        System.out.println("Enter ur name:");
+//        String name=sc.nextLine();
+
+
+//        System.out.println(n);
+//        System.out.println("Salary is:"+salary);
+//        System.out.println("Name is:"+name);
+
+        System.out.println("Enter ur double value:");
+        double d=sc.nextDouble();
+        System.out.println(d);
+
+    }
+}
+
+
+Example 2
+-----------
+        import java.util.Scanner;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter ur age:");
+        int age=sc.nextInt();
+
+        String voteEligible= age>=18 ? "Eligible":"Not Eligible";
+        System.out.println(voteEligible);
+
+
+
+
+
+
+
+
+
+
+
+-------------------------
+Flow control
+-------------
+Flow control describe the order in which the statements will be executed at runtime.
+
+Selection statements or conditional or decision statement
+----------------------------------------------------------
+Java If-else Statement
+The java  if statement is used to test the condition. 
+It checks boolean condition: true or false.
+
+There are various types of if statement in Java.
+--------------------------------------------------
+if statement
+if-else statement
+if-else-if ladder
+nested if statement
+Switch statement
+
+if statement
+-------------
+The Java if statement tests the condition. It executes the if block if condition is true.
+
+Syntax
+-------
+if(condition)
+{
+//code to be executed if the condition true
+}
+
+Example
+--------
+package com.mypack;
+
+import java.util.Scanner;
+
+public class ConditionalDemo {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter ur age:");
+
+        int age=sc.nextInt();
+
+        if(age>=18)
+        {
+            System.out.println("Eligible");
+        }
+     
+
+    }
+}
+
+
+
+if-else statement
+------------------
+The Java if-else statement also tests the condition. It executes the if block if condition is true otherwise else block is executed.
+
+Syntax
+-------
+if(condition)
+{
+//code to be executed if the condition true
+
+}
+else
+{
+//code to be executed if the condition false
+
+}
+
+Example
+-------
+package com.mypack;
+
+import java.util.Scanner;
+
+public class ConditionalDemo {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter ur age:");
+
+        int age=sc.nextInt();
+
+        if(age>=18)
+        {
+            System.out.println("Eligible");
+        }
+        else
+        {
+            System.out.println("Not Eligible");
+        }
+
+    }
+}
+
+
+
+if-else-if ladder
+------------------
+The if-else-if ladder statement executes one condition from multiple statements.
+
+Syntax:
+-------
+if(condition1)
+{  
+//code to be executed if condition1 is true  
+}
+else if(condition2)
+{  
+//code to be executed if condition2 is true  
+}  
+else if(condition3)
+{  
+//code to be executed if condition3 is true  
+}  
+else
+{  
+//code to be executed if all the conditions are false  
+} 
+
+
+Example
+--------
+package com.mypack;
+
+import java.util.Scanner;
+
+public class ConditionalDemo {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter ur mark:");
+
+        int mark=sc.nextInt();
+//        90-100--->A grade
+//        80-90--->B grade
+
+        if(mark>=90 && mark<=100)
+        {
+            System.out.println("A grade");
+        }
+        else if(mark>=80 && mark<90)
+        {
+            System.out.println("B grade");
+        }
+        else
+        {
+            System.out.println("U grade");
+        }
+
+    }
+}
+
+
+
+
+nested if statement
+--------------------
+The nested if statement represents the if block within another if block. Here, the inner if block condition executes only when outer if block condition is true.
+
+Syntax:
+---------
+if(condition)//outer if
+{    
+     //code to be executed    
+if(condition)
+{  
+             //code to be executed    
+    }   
+else
+{
+
+} 
+}  
+else
+{
+
+
+}
+
+Example
+--------
+ System.out.println("Enter ur age and Weight:");
+        int age=sc.nextInt();
+        int weight=sc.nextInt();
+        if(age>=18)
+        {
+            if(weight>=60)
+            {
+                System.out.println("Eligible to donate a blood");
+            }
+            else {
+                System.out.println("NotEligible due to insufficient Weight");
+
+            }
+        }
+        else
+        {
+            System.out.println("NotEligible due to insufficient Age");
+
+        }
+
+
+
+
+Switch statement
+------------------
+
+If several options are available then it is not recommended to use if-else we should go 
+for switch statement.
+
+The Java switch statement executes one statement from multiple conditions. It is like if-else-if ladder statement. 
+
+Until 1.4 version the allow types for the switch argument are byte, short, char, int but 
+from 1.5 version on wards the corresponding wrapper classes (Byte, Short, Character, 
+Integer) and “enum” types are allowed.
+
+
+Syntax
+-------
+switch(expression)
+{    
+case value1:    
+ //code to be executed;    
+ break;  
+
+case value2:    
+ //code to be executed;    
+ break;  
+......    
+    
+default:     
+ code to be executed if all cases are not matched;    
+}  
+
+
+Curly braces are mandatory. 
+Both case and default are optional. 
+Every statement inside switch must be under some case (or) default. Independent 
+
+
+Example
+--------
+package com.mypack;
+
+public class SwitchDemo {
+    public static void main(String[] args) {
+
+        int day=1;
+      switch (day)
+      {
+          case 1:
+              System.out.println("Sun");
+              break;
+          case 2:
+              System.out.println("Mon");
+              break;
+          case 3:
+              System.out.println("Tue");
+              break;
+          case 4:
+              System.out.println("Wed");
+              break;
+          case 5:
+              System.out.println("Thu");
+              break;
+          case 6:
+              System.out.println("Fri");
+              break;
+          case 7:
+              System.out.println("Sat");
+              break;
+          default:
+              System.out.println("Invalid day");
+      }
+
+    }
+}
+
+
+Using String
+-------------
+package com.mypack;
+
+public class SwitchDemo {
+    public static void main(String[] args) {
+
+
+        String fruit="Apple";
+      switch (fruit)
+      {
+          case "Apple":
+              System.out.println("Apple");
+              break;
+          case "Banana":
+              System.out.println("Banana");
+              break;
+          case "Orange":
+              System.out.println("Orange");
+              break;
+          default:
+              System.out.println("Invalid");
+      }
+
+    }
+}
+
+
+char
+-----
+package com.mypack;
+
+public class SwitchDemo {
+    public static void main(String[] args) {
+
+        char ch='Z';
+      switch (ch)
+      {
+          case 'A':
+
+          case 'E':
+          case 'I':
+
+          case 'O':
+
+          case 'U':
+              System.out.println("vow");
+              break;
+          default:
+              System.out.println("Consonant");
+      }
+
+    }
+}
+
+
+Selector type of 'double' is not supported...
+
+
+
+
+
+
+
+Loop or Iterative Statement
+----------------------------
+while
+do-while
+for loop
+
+target-->50  stop (condition) 1<=50
+starts--->1  initialization
+Count---->||||||||||||||||| (increment/decrement)
+
+
+
+
+while loop
+----------
+if we don’t know the no of iterations in advance then best loop is while loop.
+
+Syntax
+------
+while(condition)
+{
+//code to be executed
+
+}
+
+
+Example
+-------
+package com.mypack;
+
+public class LoopDemo {
+    public static void main(String[] args) {
+//        System.out.println("Hii");
+        int start=1;
+        while(start<=10)
+        {
+            System.out.println("Hii");
+            start++;
+        }
+        System.out.println("Outside of the loop");
+
+    }
+}
+
+
+package com.mypack;
+
+public class LoopDemo {
+    public static void main(String[] args) {
+//        System.out.println("Hii");
+        int start=1;
+        while(start<=5)
+        {
+            System.out.println(start);
+            start++;
+        }
+        System.out.println("Outside of the loop");
+        /*
+        start=1
+        1<=5 true 
+        
+        inside the loop body prints 1
+        start++ 2
+        2<=5 true inside the loop prints 2
+        3<=5 true inside the loop prints 3
+         4<=5 true inside the loop prints 4
+        5<=5 true inside the loop prints 5
+        6<=5 false loop stop
+        
+         */
+
+    }
+}
+
+
+infinite loop
+-------------
+while(true)
+{
+
+}
+
+        int start=1;
+        while(start<=5)
+        {
+            System.out.println(start);
+        }
+        System.out.println("Outside of the loop");
+
+
+
+5
+4
+3
+2
+1
+
+int start=5;
+while(start>=1)
+{
+sout(start);
+
+start--;
+
+}
+
+
+
+
+
+
+Do-while
+---------
+If we want to execute loop body at least once then we should go for do-while. 
+
+Syntax
+------
+do
+{
+
+
+}while(condition);
+
+
+Example
+===-===
+   int i=1;
+
+        do{
+            System.out.println(i);
+            i++;
+        }while(i<=10);
+
+
+
+
+int i=1;
+
+        do{
+            i++;
+            System.out.println(i);
+
+        }while(i<=10);
+
+
+
+      int i=10;
+
+        do{
+            System.out.println(i);
+            i--;
+
+        }while(i>=1);
+
+For Loop
+--------
+This is the most commonly used loop and best suitable if we know the no of iterations in 
+advance.
+
+syntax
+------
+for(initialization;condition;incr/decre)
+{
+
+
+
+}
+
+Example
+--------
+for(int i=1;i<=10;i++)
+        {
+            System.out.println(i);
+        }
+
+
