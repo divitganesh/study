@@ -1160,4 +1160,323 @@ Output
 * * * * *
 
 
+Transfer Statements
+--------------------
+break 
+continue
+
+break
+------
+immediate termination
+
+break;
+
+Example
+--------
+  for(int i=1;i<=10;i++)
+        {
+            if(i==5)
+            {
+                break;
+            }
+            System.out.println(i);
+        }
+
+
+Output
+-------
+1
+2
+3
+4
+
+
+
+ for(int i=1;i<=10;i++)
+        {
+            if(i==5)
+            {
+                System.out.println(i);
+
+                break;
+
+            }
+
+
+output
+-------
+5
+
+continue
+---------
+Skips the current iteration and moves to the next iteration of the loop.
+
+Example
+--------
+       for(int i=1;i<=10;i++)
+        {
+            if(i==5)
+            {
+                continue;
+
+            }
+
+            System.out.println(i);
+        }
+
+Output
+-------
+1
+2
+3
+4
+6
+7
+8
+9
+10
+
+======================================================================================
+
+
+Array
+-----
+An array is an indexed collection of fixed number of homogeneous data elements. 
+
+The main advantage of arrays is we can represent multiple values with the same name 
+so that readability of the code will be improved. 
+
+But the main disadvantage of arrays is: 
+-----------------------------------------
+Fixed in size that is once we created an array there is no chance of increasing or 
+decreasing the size based on our requirement that is to use arrays concept compulsory 
+we should know the size in advance which may not possible always. 
+
+We can resolve this problem by using collections.
+
+Types of array
+---------------
+Single Dimensional Array
+Multi Dimensional Array
+
+
+Single Dimensional Array
+------------------------
+
+Array declarations:
+--------------------
+Single dimensional array declaration: 
+Example:
+int[] a;//recommended to use because name is clearly separated from the type 
+int []a; 
+int a[]; 
+
+At the time of declaration we can’t specify the size otherwise we will get compile time error. 
+
+Example:
+int[] a;//valid 
+int[5] a;//invalid
+
+
+
+Single dimensional array declaration: 
+-------------------------------------
+
+Syntax for array declaration
+------------------------------
+datatype arrayname[]={elements};
+or
+datatype[] arrayname={elements};
+or
+datatype []arrayname={elements};
+
+
+      String[] name={"Muthu","Ravi","Kumar"};//String array
+      double[] salary={123.33,23.23,6565.66};//double array
+      char[] ch={'A','B','C'};//char array
+
+Example
+-------
+package com.mypack;
+
+public class ArrayDemo {
+    public static void main(String[] args) {
+        //array declaration and initialization
+        int[] studentMarks={8,9,10,6,7};
+        //Array access using index always starts from 0
+        System.out.println(studentMarks[0]);
+        System.out.println(studentMarks[1]);
+        System.out.println(studentMarks[2]);
+        System.out.println(studentMarks[3]);
+        System.out.println(studentMarks[4]);
+
+
+
+
+    }
+}
+
+
+
+Memory allocation
+-------------------
+Syntax
+------
+datatype[] arrayname=new datatype[size];
+
+
+int[] a={12,13,14};
+int[] a=new int[5];
+
+
+
+
+
+Arrays - Initialization
+• Arrays are fixed size … don’t grow over time
+• Specify the size/contents during initialization
+
+
+Accessing Elements in an Array
+• Arrays are zero-based. The first element is at position 0
+
+
+ //array declaration and instantiation
+        int[] studentMarks=new int[5];
+
+        //initialization
+        studentMarks[0]=8;
+        studentMarks[1]=9;
+        studentMarks[2]=10;
+        studentMarks[3]=6;
+        studentMarks[4]=7;
+
+        //Array access using index always starts from 0
+        System.out.println(studentMarks[0]);
+        System.out.println(studentMarks[1]);
+        System.out.println(studentMarks[2]);
+        System.out.println(studentMarks[3]);
+        System.out.println(studentMarks[4]);
+
+
+
+
+
+Length of the array
+--------------------
+• To find the length, access the .length attribute
+
+Example
+-------
+System.out.println(studentMarks.length);
+
+
+Looping Through an Array - Version 1
+--------------------------------------
+
+for loop
+----------
+
+for (int i = 0; i < array.length; i++) {
+    System.out.println(array[i]);
+}
+
+Looping Through an Array - Version 2
+-------------------------------------
+enhanced for loop
+--------------------
+Syntax
+------
+for (DataType variable : collection/array) {
+    // Code block to execute
+}
+
+DataType: The type of elements in the array or collection.
+
+variable: A temporary variable holding the current element.
+
+collection: The array or collection to iterate over.
+
+No need to manually index into the array …
+Handled for you behind the scenes with the
+enhanced for loop
+
+
+When to Use?
+
+When you only need to read elements.
+
+When working with arrays, lists, or collections.
+
+When you don't need an index or to modify elements inside the loop.
+
+
+
+Example
+---------
+
+ Scanner sc=new Scanner(System.in);
+        //array declaration and instantiation
+        System.out.println("Enter memory size:");
+        int size=sc.nextInt();
+        int[] studentMarks=new int[size];
+
+        //initialization
+        System.out.println("Enter ur mark:");
+//        int k=sc.nextInt();
+        for(int i=0;i<studentMarks.length;i++)
+        {
+            studentMarks[i]=sc.nextInt();
+
+        }
+//        studentMarks[0]=8;
+//        studentMarks[1]=9;
+//        studentMarks[2]=10;
+//        studentMarks[3]=6;
+//        studentMarks[4]=7;
+
+        //Array access using index always starts from 0
+        System.out.println("Mark list.....");
+        for(int i=0;i<studentMarks.length;i++)
+        {
+            System.out.println(studentMarks[i]);
+
+        }
+//        System.out.println(studentMarks[0]);
+//        System.out.println(studentMarks[1]);
+//        System.out.println(studentMarks[2]);
+//        System.out.println(studentMarks[3]);
+//        System.out.println(studentMarks[4]);
+//
+//        System.out.println(studentMarks.length);
+
+
+
+Example 2
+----------
+
+       int[] arr={1,2,3,4,5};
+
+        System.out.println("-----Using for loop-----------");
+        for(int i=0;i<arr.length;i++)
+        {
+            System.out.println(arr[i]);
+        }
+        System.out.println("-----Using while loop-----------");
+        int i=0;
+        while(i<arr.length)
+        {
+            System.out.println(arr[i]);
+            i++;
+        }
+        System.out.println("-----Enhanced for loop---------");
+        for(int v:arr)
+        {
+
+            System.out.println(v);
+        }
+
+
+
+
 
