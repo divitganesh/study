@@ -1476,6 +1476,537 @@ Example 2
             System.out.println(v);
         }
 
+18-7-2025
+
+Arrays in Java
+----------------
+Java provides the Arrays class to perform common array operations.
+
+Package: java.util
+
+Class: Arrays
+
+Import Statement:
+-----------------
+import java.util.Arrays;
+
+Arrays.toString(arr)
+--------------------
+Used to convert an array into a string representation.
+
+Syntax:
+-------
+Arrays.toString(arr);
+
+Example:
+
+package com.mypack;
+
+import java.util.Arrays;
+
+public class ArrayDemo {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 3, 5};
+        System.out.println(arr);                 // Prints memory location
+        System.out.println(Arrays.toString(arr)); // Prints array elements
+    }
+}
+Output:
+
+[I@7b23ec81
+[1, 2, 4, 3, 5]
+
+
+Sorting an Array (Ascending)
+-----------------------------
+Use Arrays.sort() to sort the array in ascending order.
+
+Syntax:
+
+Arrays.sort(arr);
+
+Example:
+---------
+package com.mypack;
+
+import java.util.Arrays;
+
+public class ArrayDemo {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 4, 3, 5};
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+}
+
+Example using a for-each loop:
+-------------------------------
+int[] arr = {1, 2, 4, 3, 5};
+Arrays.sort(arr); // Now arr = [1, 2, 3, 4, 5]
+for (int v : arr) {
+    System.out.println(v);
+}
+
+Output:
+1
+2
+3
+4
+5
+
+
+Swapping Two Numbers
+----------------------
+int a = 12;
+int b = 10;
+
+System.out.println("Before Swapping: " + a + " " + b);
+
+int temp = a;
+a = b;
+b = temp;
+
+System.out.println("After Swapping: " + a + " " + b);
+
+
+Output:
+
+Before Swapping: 12 10  
+After Swapping: 10 12
+
+
+Sorting Without Using Arrays.sort()
+------------------------------------
+Ascending Order:
+----------------
+
+int[] arr = {1, 2, 4, 3, 5};
+
+for (int i = 0; i < arr.length; i++) {
+    for (int j = i + 1; j < arr.length; j++) {
+        if (arr[i] > arr[j]) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+    System.out.println(arr[i]);
+}
+
+Descending Order:
+-------------------
+int[] arr = {1, 2, 4, 3, 5};
+
+for (int i = 0; i < arr.length; i++) {
+    for (int j = i + 1; j < arr.length; j++) {
+        if (arr[i] < arr[j]) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+    System.out.println(arr[i]);
+}
+Output:
+---------
+5
+4
+3
+2
+1
+
+Finding Maximum Value
+----------------------
+int[] arr = {1, 2, 4, 3, 5};
+int size = arr.length;
+
+Arrays.sort(arr); // Sorted: [1, 2, 3, 4, 5]
+System.out.println("Max: " + arr[size - 1]);
+
+
+Finding Top 3 Maximum Values
+-----------------------------
+int[] arr = {1, 2, 4, 3, 5};
+int size = arr.length;
+
+Arrays.sort(arr); // [1, 2, 3, 4, 5]
+System.out.println("1st Max: " + arr[size - 1]);
+System.out.println("2nd Max: " + arr[size - 2]);
+System.out.println("3rd Max: " + arr[size - 3]);
+
+
+Without using sort:
+--------------------
+
+int[] arr = {1, 2, 4, 3, 5, 67, 12, 56};
+int size = arr.length;
+
+for (int i = 0; i < size; i++) {
+    for (int j = i + 1; j < size; j++) {
+        if (arr[i] > arr[j]) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+}
+
+System.out.println("1st Max: " + arr[size - 1]);
+System.out.println("2nd Max: " + arr[size - 2]);
+System.out.println("3rd Max: " + arr[size - 3]);
+
+
+Arrays.fill()
+-------------
+Fills the array with a specified value.
+
+Syntax:
+--------
+
+Arrays.fill(arr, value);
+
+Examples:
+
+int[] arr = new int[5];
+Arrays.fill(arr, 6);
+System.out.println(Arrays.toString(arr));
+
+Output:
+
+[6, 6, 6, 6, 6]
+
+
+int[] arr = new int[5];
+Arrays.fill(arr, 1, 4, 7);
+System.out.println(Arrays.toString(arr));
+
+Output:
+[0, 7, 7, 7, 0]
+
+
+Arrays.equals()
+----------------
+Compares two arrays. Returns true if both arrays have the same elements in the same order.
+
+Syntax:
+--------
+Arrays.equals(arr1, arr2);
+
+Example:
+---------
+int[] arr = {1, 2, 3};
+int[] arr1 = {2, 3, 1};
+boolean equals = Arrays.equals(arr, arr1);
+System.out.println(equals);
+
+Output:
+
+false
+
+Note: Order matters. Even if both arrays have the same elements, if the order is different, it returns false.
+
+23-07-2025
+
+Multidimensional Array
+-----------------------
+
+A 2D array (or matrix) is an array of arrays where each element is an array itself.
+
+Used to represent tables, grids, or matrices in programming
+Data is stored in row and column based index.(Matrix)
+
+Syntax to Declare 2D Array in Java
+-------------------------------------------------
+
+dataType[][] arrayRefVar; (or)  
+dataType [][]arrayRefVar; (or
+)  
+dataType arrayRefVar[][]; (or)  
+dataType []arrayRefVar[];   
+
+Example to instantiate Multidimensional Array in Java
+
+int[][] arr=new int[row][col]; 
+
+
+int[][] arr=new int[3][3];//3 row and 3 column  
+
+
+   //datatype[][] arrayName={{},{},{}}
+   //datatype[][] arrayName=new datatype[rows][columns];
+
+
+Example to initialize Multidimensional Array in Java
+-----------------------------------------------------
+arr[0][0]=1;  
+arr[0][1]=2;  
+arr[0][2]=3;  
+arr[1][0]=4;  
+arr[1][1]=5;  
+arr[1][2]=6;  
+arr[2][0]=7;  
+arr[2][1]=8;  
+arr[2][2]=9;  
+
+//declaring and initializing 2D array  
+int arr[][]={{1,2,3},{2,4,5},{4,4,5}};  
+
+
+
+
+Example
+--------
+      int[][] arr=new int[3][3];//Array Declaration and instantiation
+
+        //Array initialization
+
+//        arr[0][0]=1;
+//        arr[0][1]=2;
+//        arr[0][2]=3;
+//
+//        arr[1][0]=4;
+//        arr[1][1]=5;
+//        arr[1][2]=6;
+//
+//        arr[2][0]=7;
+//        arr[2][1]=8;
+//        arr[2][2]=9;
+
+
+        int k=1;
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=0;j< arr.length;j++)
+            {
+                arr[i][j]=k;
+                k++;
+            }
+
+        }
+
+        //Access
+//        System.out.println(arr[0][0]);
+//        System.out.println(arr[0][1]);
+//        System.out.println(arr[0][2]);
+//
+//        System.out.println(arr[1][0]);
+//        System.out.println(arr[1][1]);
+//        System.out.println(arr[1][2]);
+//
+//        System.out.println(arr[2][0]);
+//        System.out.println(arr[2][1]);
+//        System.out.println(arr[2][2]);
+
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=0;j<arr.length;j++)
+            {
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
+
+
+
+
+
+Using enhanced for loop
+--------------------------
+int[][] arr={{1,2,3},{4,5,6},{7,8,9}};
+
+for(int[] r:arr)
+{
+    for(int v:r)
+    {
+        System.out.print(v+" ");
+    }
+    System.out.println();
+}
+
+
+Example
+-------
+int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        System.out.println(Arrays.deepToString(arr));
+
+        System.out.println("Using for loop");
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length; j++) {
+                System.out.println(arr[i][j]);
+
+            }
+        }
+        System.out.println("--------Enhanced for loop----------------");
+
+        for (int[] v : arr) {
+            for (int v1 : v) {
+                System.out.println(v1);
+            }
+
+
+        }
+    }
+
+
+}
+
+
+
+
+Jagged Arrays
+--------------
+
+A jagged array (also called an irregular array) is a special type of 2D array where the number of columns varies for each row. It is useful when dealing with scenarios where the number of elements in each row is different.
+
+
+Declaration and Initialization
+--------------------------------
+
+int[][] jaggedArray = new int[3][];
+
+// Assigning different column sizes for each row
+jaggedArray[0] = new int[2];  // 2 columns
+jaggedArray[1] = new int[4];  // 4 columns
+jaggedArray[2] = new int[3];  // 3 columns
+
+
+int[][] jaggedArray = {
+    {1, 2},
+    {3, 4, 5, 6},
+    {7, 8, 9}
+};
+
+Memory Representation
+-----------------------
+Unlike 2D arrays, jagged arrays do not occupy equal memory for all rows. Each row has its own separate memory allocation.
+
+jaggedArr[0] → [1, 2]  
+jaggedArr[1] → [3, 4, 5, 6]  
+jaggedArr[2] → [7, 8, 9]  
+
+Iterating Over a Jagged Array
+-------------------------------
+for (int i = 0; i < jaggedArray.length; i++) {
+    for (int j = 0; j < jaggedArray[i].length; j++) {
+        System.out.print(jaggedArray[i][j] + " ");
+    }
+    System.out.println();
+}
+
+System.out.println("using for each");
+        for(int[] row:jaggedArray)
+        {
+            for(int el:row)
+            {
+                System.out.println(el);
+            }
+
+        }
+
+
+
+ //convert 2D array to String
+ System.out.println(Arrays.deepToString(jaggedArray));
+
+Advantages of Jagged Arrays
+----------------------------
+Memory Efficient: Saves memory since it allocates space only for the required number of columns.
+
+Flexibility: Different rows can have different numbers of columns.
+
+------------------------------------------------------------------
+
+
+
+Jagged Array
+-------------
+If we are creating odd number of columns in a 2D array, it is known as a jagged array. In other words, it is an array of arrays with different number of columns.
+
+------------
+In java multidimensional arrays are implemented as array of arrays approach but not 
+matrix form. 
+
+The main advantage of this approach is to improve memory utilization. 
+
+Example 1:2D
+int[][] a=new int[2][]; 
+a[0]=new int[3]; 
+a[1]=new int[2]; 
+
+
+
+Example:
+package com.test;
+
+
+
+public class ArrayDemo {
+
+	public static void main(String[] args) {
+		
+		int a[][]=new int[2][];
+		a[0]=new int[3];
+		a[1]=new int[4];
+		
+		for(int i=0;i<a.length;i++)
+		{
+			for(int j=0;j<a[i].length;j++)
+			{
+				a[i][j]=1;
+			}
+			
+		}
+		
+		for(int i=0;i<a.length;i++)
+		{
+			for(int j=0;j<a[i].length;j++)
+			{
+				System.out.print(a[i][j]);
+			}
+			System.out.println(" ");
+		}
+
+	}
+
+}
+
+
+
+
+
+Example :
+System.out.println(a);//[[I@3e25a5 
+System.out.println(a[0]);//[I@19821f 
+System.out.println(a[0][0]);//0
+
+
+Note: Whenever we are trying to print any object reference internally toString() method will be 
+executed which is implemented by default to return the following. 
+classname@hexadecimalstringrepresentationofhashcode.
+
+
+length:
+1) It is the final variable applicable only for arrays. 
+2) It represents the size of the array. 
+19 
+Example:
+int[] x=new int[3]; 
+System.out.println(x.length());//C.E: cannot find symbol 
+System.out.println(x.length);//3
+
+=================================================================================================================
+
+
+
+
+
+String
+--------
+Sequence of characters enclosed with in double quotes...
+String Object...
+
+String name="Muthu";
+
 
 
 
