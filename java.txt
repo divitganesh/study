@@ -1999,13 +1999,628 @@ System.out.println(x.length);//3
 
 
 
-
 String
---------
-Sequence of characters enclosed with in double quotes...
-String Object...
+-------
+Sequence of characters..
+String immutable..(cannot be changed)
+String class ---->compare() ,equals(),length(),concat(),CompareTo()....
+java.lang.String--->java.lang(package name).String(class name)
 
-String name="Muthu";
+How to create String object
+----------------------------
+By string literal
+By new keyword
+
+1)String literal----constant
+
+String s="welcome";
+
+Immutable
+-----------
+package com.mypack1;
+
+public class StringDemo {
+    public static void main(String[] args) {
+        //using literals
+        String name="Muthu";
+        name= name.concat("Kumar");
+        System.out.println(name);
+
+    }
+}
+
+
+new keyword
+------------
+String s=new String("welcome");
+
+package practice;
+
+public class StringDemo {
+
+	public static void main(String[] args) {
+		String s1=new String("Welcome");
+
+		System.out.print(ch);
+
+	}
+
+}
+
++ Concat(join)
+-----------
+        String str1="Hii";
+        String str2="Hii";
+        
+        int a=12;
+        int b=2;
+        System.out.println(a+b);
+
+        System.out.println(str1+str2+a+b);//HiiHii122
+        System.out.println(a+b+str1+str2);//14HiiHii
+ 
+
+String Methods
+---------------
+
+length vs length()
+
+1. length() – Get String Length
+---------------------------------
+Syntax:
+
+int length = str.length();
+
+Usage: Returns the total number of characters in the string.
+
+Example:
+
+String str = "Hello World";
+System.out.println(str.length());  // Output: 11
+
+2. charAt(index) – Get Character at a Specific Position
+-------------------------------------------------------
+
+Syntax:
+--------
+char ch = str.charAt(index);
+Usage: Returns the character at the given index (0-based).
+
+Example:
+
+String str = "Java";
+System.out.println(str.charAt(1));  // Output: 'a'
+
+
+3. toUpperCase() – Convert to Uppercase
+----------------------------------------
+
+Syntax:
+String upperStr = str.toUpperCase();
+Example:
+
+String str = "hello";
+System.out.println(str.toUpperCase());  // Output: "HELLO"
+
+4. toLowerCase() – Convert to Lowercase
+-----------------------------------------
+Syntax:
+String lowerStr = str.toLowerCase();
+
+Example:
+String str = "HELLO";
+System.out.println(str.toLowerCase());  // Output: "hello"
+
+5. trim() – Remove Leading & Trailing Spaces
+----------------------------------------------
+Syntax:
+String trimmedStr = str.trim();
+
+Example:
+
+String str = "  Java  ";
+System.out.println(str.trim());  // Output: "Java"
+
+6. substring(beginIndex) – Extract Substring
+----------------------------------------------
+Syntax:
+String subStr = str.substring(startIndex);
+Example:
+
+String str = "Programming";
+System.out.println(str.substring(3));  // Output: "gramming"
+
+7. substring(beginIndex, endIndex) – Extract Specific Substring
+---------------------------------------------------------------
+Syntax:
+String subStr = str.substring(startIndex, endIndex);
+Example:
+
+String str = "JavaProgramming";
+System.out.println(str.substring(4, 11));  // Output: "Program"
+
+
+
+
+8. equals() – Compare Strings (Case-Sensitive)
+------------------------------------------------
+Syntax:
+boolean isEqual = str1.equals(str2);
+
+Example:
+
+String s1 = "Java";
+String s2 = "Java";
+System.out.println(s1.equals(s2));  // Output: true
+
+
+Ex2
+----
+
+       String s1="Java";
+        String s2="java";
+
+        boolean eq=s1.equals(s2);
+
+        System.out.println(eq);//false
+        System.out.println(s1==s2);//false
+
+
+
+Ex3
+----
+       String s1="Java";
+        String s2="Java";
+        String s3=new String("Java");
+        boolean eq=s1.equals(s3);
+
+        System.out.println(eq);//true
+        System.out.println(s1==s3);//false
+
+9. compareTo() – Lexicographical Comparison
+------------------------------------------
+
+s1==s2:0
+s1>s2:positive value
+s1<s2:negative value
+
+Syntax:
+int result = str1.compareTo(str2);
+Example:
+
+String s1 = "Apple";
+String s2 = "Banana";
+System.out.println(s1.compareTo(s2));  // Output: -1
+
+10. contains() – Check If Substring Exists
+-------------------------------------------
+Syntax:
+-------
+boolean result = str.contains("text");
+
+Example:
+String str = "Java Programming";
+System.out.println(str.contains("Java"));  // Output: true
+
+12. startsWith() – Check Prefix
+---------------------------------
+Syntax:
+boolean result = str.startsWith("prefix");
+
+Example:
+String str = "Hello.java";
+System.out.println(str.startsWith("Hello"));  // Output: true
+
+13. endsWith() – Check Suffix
+-------------------------------
+Syntax:
+boolean result = str.endsWith("suffix");
+Example:
+
+String str = "MyFile.java";
+System.out.println(str.endsWith(".java"));  // Output: true
+
+Example
+--------
+
+   String url="https://www.amazon.in/";
+        if(url.endsWith("in/"))
+        {
+            System.out.println("Valid url");
+        }
+        else
+        {
+            System.out.println("Invalid url");
+        }
+
+String[] products={"Mobile","Laptop","Watch"};
+
+
+14. indexOf() – Get First Occurrence Index
+--------------------------------------------
+Syntax:
+
+int index = str.indexOf("text");
+Example:
+
+String str = "Java Programming";
+System.out.println(str.indexOf("a"));  // Output: 1
+
+15. replace() – Replace Characters
+------------------------------------
+Syntax:
+String newStr = str.replace('oldChar', 'newChar');
+Example:
+
+String str = "Java is fun";
+System.out.println(str.replace('a', 'o'));  // Output: "Jovo is fun"
+
+16. split() – Split String into Array
+--------------------------------------
+
+
+Syntax:
+String[] parts = str.split("delimiter");
+
+Example:
+
+String str = "Apple,Orange,Banana";
+String[] fruits = str.split(",");
+
+for (String fruit : fruits) {
+    System.out.println(fruit);
+}
+/* Output:
+Apple
+Orange
+Banana
+*/
+
+17. join() – Join Strings with a Delimiter
+------------------------------------------
+Syntax:
+
+String result = String.join("delimiter", str1, str2, ...);
+Example:
+
+
+String result = String.join("-", "Java", "Python", "C++");
+System.out.println(result);  // Output: "Java-Python-C++"
+
+
+
+hashcode()
+-----------
+
+For every object jvm will generate a unique number which is nothing but hashCode. 
+hashCode of an object will be used by jvm while saving objects into HashSet, HashMap, 
+and Hashtable etc. 
+ If the objects are stored according to hashCode searching will become very efficient 
+(The most powerful search algorithm is hashing which will work based on hashCode). 
+
+If we didn’t override hashCode() method then Object class hashCode() method will be 
+executed which generates hashCode based on address of the object but it
+
+Example:
+--------
+          String s1="string1";
+	  String s2="string1";
+	  
+		 
+	 System.out.println(s1.hashCode());//-1881759168
+	 System.out.println(s2.hashCode());//-1881759168
+
+
+
+
+
+Example
+--------
+package com.mypack1;
+
+public class StringDemo {
+    public static void main(String[] args) {
+//        //using literals
+//        String name="Muthu";
+//        name= name.concat("Kumar");
+//        System.out.println(name);
+        //new keyword
+//        String str=new String("Welcome");
+//        System.out.println(str);
+
+//        String str1="Hii";
+//        String str2="Hii";
+//        String str3=new String("Hii");//2 different objects
+//
+//
+//        System.out.println(str1==str2);//true
+//        System.out.println(str1==str3);//false
+//
+//        boolean equals = str1.equals(str3);
+//        System.out.println(equals);
+//
+//        int a=12;
+//        int b=2;
+//        System.out.println(a+b);
+//
+//        System.out.println(str1+str2+a+b);
+//        System.out.println(a+b+str1+str2);
+
+
+//        String s="Java is a programming language";
+//        int length = s.length();
+//
+//        System.out.println("Length:"+" "+length);
+//        char c = s.charAt(1);
+//        System.out.println(c);
+//        String upperCase = s.toUpperCase();
+//
+//        System.out.println(upperCase);
+//        System.out.println(s.toLowerCase());
+//        System.out.println("Before Trim:"+" "+s.length());
+//        String trim = s.trim();
+//        System.out.println("After Trim:"+" "+trim.length());
+//
+//        System.out.println("\u0B85");
+//        System.out.println(s.substring(10,22));
+//
+//        String s1 = "Apple";
+//        String s2 = "Aplle";
+//        System.out.println(s1.compareTo(s2));//A 65<67 112>108
+//
+//        String product="mobile";
+//        String search="watch";
+//        if(product.contains(search))
+//        {
+//            System.out.println("Found");
+//        }
+//        else
+//        {
+//            System.out.println("Not found");
+//        }
+//        System.out.println(s.contains("Java"));
+//        System.out.println(s.startsWith("java"));
+//        System.out.println(s.endsWith("language"));
+//
+//        String url="https://www.amazon.in/";
+//        if(url.endsWith("in/"))
+//        {
+//            System.out.println("Valid url");
+//        }
+//        else
+//        {
+//            System.out.println("Invalid url");
+//        }
+
+//        String s="Java-is-very-difficult ";
+//        int j = s.indexOf("Java",5,9);
+//        System.out.println(j);
+//        String replace = s.replace("difficult", "easy");
+//        System.out.println(replace);
+//
+//        String[] s1 = s.split("-");//{"Java","is","very","difficult"}
+//        System.out.println(s1);
+//        for(String s2:s1)
+//        {
+//            System.out.println(s2);
+//        }
+//
+//        String result = String.join("-", "Java", "Python", "C++");
+//
+//        System.out.println(result);
+
+        String s1="Hii";
+//        String s2="Hii";
+//        System.out.println(s1==s2);
+//        int i = s1.hashCode();
+//        int j=s2.hashCode();
+//        System.out.println(i);
+//        System.out.println(j);
+//
+//        char[] charArray = s1.toCharArray();
+//        System.out.println(charArray[0]);
+
+        String r="";
+        for(int i=s1.length()-1;i>=0;i--)
+        {
+          r += s1.charAt(i);//r=r+s1.charAt(i); r=""+i r=i+i
+        }
+        System.out.println( r);
+
+
+    }
+}
+
+
+
+
+StringBuffer----Mutable
+------------------------
+If the content will change frequently then never recommended to go for String object because for every change a new object will be created internally.
+
+To handle this type of requirement we should go for StringBuffer concept.
+
+The main advantage of StringBuffer over String is, all required changes will be performed in the existing object only instead of creating new object.
+
+Constructors:
+-------------
+1) StringBuffer sb=new StringBuffer();
+Creates an empty StringBuffer object with default initialcapacity “16”.
+Once StringBuffer object reaches its maximum capacity a new StringBuffer object will be created with 
+
+Newcapacity=(currentcapacity+1)*2.
+
+
+Important methods of StringBuffer:
+----------------------------------
+1) length();
+Return the no of characters present in the StringBuffer.
+
+2) capacity();
+ Returns current buffer capacity (memory)
+
+3) charAt(int index);
+It returns the character located at specified index.
+
+4) setCharAt(int index,char ch);
+To replace the character locating at specified index with the provided character.
+
+5) append(String s);   Adds content to the end of the buffer
+
+6) insert(int index,String s);   Inserts text at a specific index 
+
+7) delete(int begin,int end);
+ To delete characters from begin index to end n-1 index.
+
+8) deleteCharAt(int index);
+ To delete the character locating at specified index.
+
+9) reverse(); Reverses the string
+
+10) setLength(int length);
+Consider only specified no of characters and remove all the remaining characters.
+
+11) trimToSize();
+To deallocate the extra free memory such that capacity and size are equal.
+
+12) ensureCapacity(int initialcapacity);
+To increase the capacity dynamically based on our requirement.
+
+
+replace()
+Replaces characters between two indexes
+sb.replace(int start, int end, String str);
+
+toString()
+Converts StringBuffer to String
+
+Example
+-------
+package com.mypack1;
+
+public class StringBufferDemo {
+    public static void main(String[] args) {
+        StringBuffer sb=new StringBuffer();
+        sb.ensureCapacity(100);
+        int capacity = sb.capacity();
+        System.out.println(capacity);
+        sb.append("ABCDEFGHIJKLMNOPQ");
+//        sb.append("Q");
+        System.out.println(sb.capacity());
+        System.out.println(sb.length());
+        sb.insert(1,"hii");
+        System.out.println(sb);
+        System.out.println(sb.charAt(1));
+        sb.setCharAt(1,'H');
+        System.out.println(sb);
+        sb.delete(1,4);
+        System.out.println(sb);
+        sb.deleteCharAt(1);
+        System.out.println(sb);
+
+        sb.reverse();
+        System.out.println(sb);
+
+        String name="Oranium";
+        StringBuffer sb1=new StringBuffer(name);
+        sb1.reverse();
+        System.out.println(sb1);
+
+
+
+    }
+}
+
+
+
+
+
+StringBuilder (1.5)
+-----------------------
+Every method present in StringBuffer is declared as synchronized hence at a time only one thread is allowed to operate on the StringBuffer object due to this, waiting time of the threads will be increased and effects performance of the system.
+To overcome this problem sun people introduced StringBuilder concept in 1.5v.
+
+String vs StringBuffer vs StringBuilder
+----------------------------------------
+If the content is fixed and won’t change frequently then we should go for String.
+If the content will change frequently but Thread safety is required then we should go for StringBuffer.
+If the content will change frequently and Thread safety is not required then we should go for StringBuilder.
+
+Important methods of StringBuilder:
+-----------------------------------
+1)StringBuilder append() method
+The StringBuilder append() method concatenates the given argument with this string.
+
+2)StringBuilder insert() 
+The StringBuilder insert() method inserts the given string with this string at the given position.
+
+3)StringBuilder replace() 
+The StringBuilder replace() method replaces the given string from the specified beginIndex and endIndex.
+
+4)StringBuilder delete() 
+The delete() method of StringBuilder class deletes the string from the specified beginIndex to endIndex.
+
+5)StringBuilder reverse() 
+The reverse() method of StringBuilder class reverses the current string.
+
+6)StringBuilder capacity() 
+ The capacity() method of StringBuilder class returns the current capacity of the Builder. The default capacity of the Builder is 16.
+
+
+
+Example
+----------
+public class StringBufferDemo {
+    public static void main(String[] args) {
+        StringBuilder sb=new StringBuilder();
+        sb.ensureCapacity(100);
+        int capacity = sb.capacity();
+        System.out.println(capacity);
+        sb.append("ABCDEFGHIJKLMNOPQ");
+//        sb.append("Q");
+        System.out.println(sb.capacity());
+        System.out.println(sb.length());
+        sb.insert(1,"hii");
+        System.out.println(sb);
+        System.out.println(sb.charAt(1));
+        sb.setCharAt(1,'H');
+        System.out.println(sb);
+        sb.delete(1,4);
+        System.out.println(sb);
+        sb.deleteCharAt(1);
+        System.out.println(sb);
+
+        sb.reverse();
+        System.out.println(sb);
+
+        String name="Oranium";
+        StringBuffer sb1=new StringBuffer(name);
+        sb1.reverse();
+        System.out.println(sb1);
+
+}
+}
+
+
+
+ long start1 = System.currentTimeMillis();
+                String s = "Hello";
+                for (int i = 0; i < 10000; i++) {
+                    s = s + " World";
+                }
+                long end1 = System.currentTimeMillis();
+                System.out.println("String Time: " + (end1 - start1) + " ms");
+
+                // Test with StringBuffer
+                long start2 = System.currentTimeMillis();
+                StringBuffer sb = new StringBuffer("Hello");
+                for (int i = 0; i < 10000; i++) {
+                    sb.append(" World");
+                }
+                long end2 = System.currentTimeMillis();
+                System.out.println("StringBuffer Time: " + (end2 - start2) + " ms");
+
+
 
 
 
