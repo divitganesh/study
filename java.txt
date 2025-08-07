@@ -2596,7 +2596,7 @@ public class StringBufferDemo {
         String name="Oranium";
         StringBuffer sb1=new StringBuffer(name);
         sb1.reverse();
-        System.out.println(sb1);
+        System.out.println(sb1); 
 
 }
 }
@@ -2621,6 +2621,131 @@ public class StringBufferDemo {
                 System.out.println("StringBuffer Time: " + (end2 - start2) + " ms");
 
 
+//////////////////
+Java Methods
+
+What is a Method
+------------------
+A method is a block of code used to perform a specific task. 
+It helps in code reusability, improves readability, and makes the program easier to maintain.
+
+Method Signature
+----------------
+A method signature includes the method name and the parameter list.
+
+
+Syntax
+---------
+
+access_modifier return_type methodName(parameters) 
+{
+    // code to execute
+}
+
+Components of a Method
+---------------------------
+Access Modifier - Controls visibility
+
+public: accessible everywhere
+
+private: accessible only within the class
+
+protected: accessible within the package or subclass
+
+default (no modifier): accessible within the package
+
+Return Type - The type of value the method returns (int, String, void, etc.)
+
+Method Name - Should describe what the method does (example: addNumbers)
+
+Parameters - Inputs to the method (can be zero or more)
+
+Method Body - The set of statements to be executed inside the curly braces
+
+
+Return Type
+------------
+   public  static int m1()
+    {
+//        System.out.println("M1 Method");
+        return 1;
+    }
+
+
+ public  static float m1()
+    {
+//        System.out.println("M1 Method");
+        return 11.11f;
+    }
+
+
+  public  static String m1()
+    {
+//        System.out.println("M1 Method");
+        return "Hello";
+    }
+
+
+void--> does not return anything
+
+
+Types of Methods in Java
+--------------------------
+Predefined methods - Examples: length(), println(), charAt() etc....
+User-defined methods - Created by the programmer based on requirements
+
+Types of Methods in User-Defined Methods
+-----------------------------------------
+
+Method with no parameters and no return type
+
+Method with parameters and no return type
+
+Method with no parameters and with return type
+
+Method with parameters and return type
+
+
+Method with no parameters and no return type
+----------------------------------------------
+
+   public static void m1()
+    {
+        System.out.println("m1 method");
+    }
+
+
+Method with parameters and no return type
+------------------------------------------
+  public static void m1(int a, int b)
+    {
+        System.out.println(a+b);
+    }
+
+Method with no parameters and with return type
+-----------------------------------------------
+    public static int m1()
+    {
+return 0;    
+}
+
+
+Method with parameters and return type
+----------------------------------------
+    public static int m1(int a ,int b)
+    {
+      return a+b;
+    }
+
+
+factorial program
+-------------------
+5*4*3*2*1---->120;
+
+String reverse
+----------------
+
+String s="Hello";
 
 
 

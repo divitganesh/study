@@ -1,0 +1,3164 @@
+OOPS
+----
+Object Oriented Programming System
+
+
+OOPS is a programming approach that uses objects and classes to structure code in a modular, reusable, and organized way.
+
+class
+Object
+
+pillar of oops
+---------------
+Inheritance
+Abstraction
+Polymorphism
+Encapsulation
+
+
+
+
+class
+-----
+collection of objects
+It is blueprint of an object.
+
+Logical entity
+
+Syntax
+-------
+class ClassName{
+
+}
+
+
+Object
+-------
+Instance of a class. It has state and behaviour.
+
+state---variable or field or attributes
+behaviour---Method
+
+real time entity
+
+
+
+object creation
+----------------
+Syntax
+--------
+class_name object_name=new class_name();
+
+
+
+Example
+---------
+package com.mypack2;
+
+
+
+class Apple
+{
+    String name="Fruit";  //state
+    String color="Red";
+    int price=250;
+
+    public String eat()//behavior
+    {
+//        System.out.println("Eatting");
+        return "Eatting";
+    }
+
+
+}
+
+
+
+public class OOpsDemo {
+    public static void main(String[] args) {
+        Apple ap=new Apple();//Object Creation
+        System.out.println(ap.color+" "+ap.name+" "+ap.price);
+//        ap.eat();
+        System.out.println(ap.eat());
+
+    }
+}
+
+Example 2
+---------
+public class OOpsDemo {
+    String name="Fruit";
+    String color="Red";
+    int price=250;
+
+    public String eat()
+    {
+//        System.out.println("Eatting");
+        return "Eatting";
+    }
+    public static void main(String[] args) {
+        OOpsDemo ap=new OOpsDemo();
+        System.out.println(ap.color+" "+ap.name+" "+ap.price);
+//        ap.eat();
+        System.out.println(ap.eat());
+
+    }
+}
+
+
+
+
+
+3 Ways to initialize object
+---------------------------
+There are 3 ways to initialize object in Java.
+By reference variable
+By method
+By constructor
+
+
+By reference variable
+----------------------
+package com.mypack2;
+
+
+
+class Apple
+{
+    String name;
+    String color;
+    int price;
+
+    public String eat()
+    {
+        return "Eatting";
+    }
+
+
+}
+
+
+
+public class OOpsDemo {
+
+    public static void main(String[] args) {
+        Apple ap=new Apple();
+        ap.name="Fruit";//reference variable
+        ap.color="Red";
+        ap.price=300;
+        System.out.println(ap.color+" "+ap.name+" "+ap.price);
+        System.out.println(ap.eat());
+
+    }
+}
+
+
+By method
+----------
+
+package com.mypack2;
+
+
+
+class Apple
+{
+    String name;
+    String color;
+    int price;
+
+    public void Initialize(String n,String c,int p)
+    {
+        name=n;
+        color=c;
+        price=p;
+    }
+
+
+    public String eat()
+    {
+        return "Eatting";
+    }
+
+
+}
+
+
+
+public class OOpsDemo {
+
+    public static void main(String[] args) {
+        Apple ap=new Apple();
+        ap.Initialize("Fruit","Red",300);
+
+        System.out.println(ap.color+" "+ap.name+" "+ap.price);
+        System.out.println(ap.eat());
+
+    }
+}
+
+
+this keyword is used to refer current object of a class
+
+
+
+
+package com.mypack2;
+
+
+
+class Apple
+{
+    String name;
+    String color;
+    int price;
+
+    public void Initialize(String name,String color,int price)
+    {
+        this.name=name;
+        this.color=color;
+        this.price=price;
+    }
+
+
+    public String eat()
+    {
+        return "Eatting";
+    }
+    public void display()
+    {
+        System.out.println("Apple name:"+name+" "+"Apple color:"+color+" "+"Apple price:"+price);
+    }
+
+
+
+}
+
+
+
+public class OOpsDemo {
+
+    public static void main(String[] args) {
+        Apple ap=new Apple();
+        Apple ap1=new Apple();
+
+        ap.Initialize("Fruit","Red",300);
+        ap1.Initialize("Fruit","Green",500);
+
+//        System.out.println(ap.color+" "+ap.name+" "+ap.price);
+//        System.out.println(ap1.color+" "+ap1.name+" "+ap1.price);
+
+        ap.display();
+        ap1.display();
+
+        System.out.println(ap.eat());
+
+    }
+}
+
+
+
+
+
+Constructor
+------------
+
+A constructor in Java is a special method that is used to initialize objects. 
+
+The constructor is called when an object of a class is created. 
+
+It can be used to set initial values for object attributes.
+
+Every time an object is created using the new() keyword, at least one constructor is called.
+
+It calls a default constructor if there is no constructor available in the class. In such case, Java compiler provides a default constructor by default.
+
+There are two types of constructors in Java:
+--------------------------------------------
+Default (no-arg) constructor
+parameterized(arguments) constructor.
+
+Note: It is called constructor because it constructs the values at the time of object creation. It is not necessary to write a constructor for a class. It is because java compiler creates a default constructor if your class doesn't have any.
+
+public  myclass()
+{
+
+
+}
+
+Rules to write constructors:
+----------------------------
+1)Name of the constructor and name of the class must be same.
+
+2)Return type concept is not applicable for constructor even void also by mistake if we are declaring the return type for the constructor we won’t get any compile time error and runtime error compiler simply treats it as a method.
+
+Example:
+class Test
+{
+void Test() //it is not a constructor and it is a method
+{
+
+}
+}
+
+3) It is legal (but stupid) to have a method whose name is exactly same as class name.
+
+4) The only applicable modifiers for the constructors are public, default, private, protected.
+
+5) If we are using any other modifier we will get compile time error.
+
+Example:
+---------
+class Test
+{
+static Test()
+{
+
+}
+}
+
+Output:
+--------
+Modifier static not allowed here
+
+package com.mypack2;
+
+
+
+class Apple
+{
+    String name;
+    String color;
+    int price;
+
+   public Apple()
+    {
+        System.out.println("Default constructor");
+    }
+
+
+
+
+
+    public String eat()
+    {
+        return "Eatting";
+    }
+    public void display()
+    {
+        System.out.println("Apple name:"+name+" "+"Apple color:"+color+" "+"Apple price:"+price);
+    }
+
+
+
+}
+
+
+
+public class OOpsDemo {
+
+    public static void main(String[] args) {
+        Apple ap=new Apple();
+        Apple ap1=new Apple();
+
+
+
+//        System.out.println(ap.color+" "+ap.name+" "+ap.price);
+//        System.out.println(ap1.color+" "+ap1.name+" "+ap1.price);
+
+        ap.display();
+        ap1.display();
+
+        System.out.println(ap.eat());
+
+    }
+}
+
+
+Output
+-------
+Default constructor
+Default constructor
+Apple name:null Apple color:null Apple price:0
+Apple name:null Apple color:null Apple price:0
+Eatting
+
+
+parameterized(arguments) constructor.
+--------------------------------------
+package com.mypack2;
+
+
+
+class Apple
+{
+    String name;
+    String color;
+    int price;
+
+   public Apple(String name,String color,int price)
+    {
+       this.name=name;
+       this.color=color;
+       this.price=price;
+    }
+
+
+
+
+
+    public String eat()
+    {
+        return "Eatting";
+    }
+    public void display()
+    {
+        System.out.println("Apple name:"+name+" "+"Apple color:"+color+" "+"Apple price:"+price);
+    }
+
+
+
+}
+
+
+
+public class OOpsDemo {
+
+    public static void main(String[] args) {
+        Apple ap=new Apple("Fruit","Red",290);
+        Apple ap1=new Apple("Fruit","Green",300);
+
+
+
+//        System.out.println(ap.color+" "+ap.name+" "+ap.price);
+//        System.out.println(ap1.color+" "+ap1.name+" "+ap1.price);
+
+        ap.display();
+        ap1.display();
+
+        System.out.println(ap.eat());
+
+    }
+}
+
+
+
+
+
+
+
+
+Inheritance
+-----------
+Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object. It is an important part of OOPs (Object Oriented programming system).
+
+Why use inheritance in java?
+----------------------------
+For Method Overriding (so runtime polymorphism can be achieved).
+For Code Reusability.
+
+Types of inheritance in java
+-----------------------------
+single
+multilevel 
+hierarchical
+hybrid
+multiple
+
+In java programming, multiple and hybrid inheritance is supported through interface only.
+
+
+The syntax of Java Inheritance
+------------------------------
+class Subclass-name extends Superclass-name  
+{  
+   //methods and fields  
+}  
+The extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.
+In the terminology of Java, a class which is inherited is called a parent or superclass, and the new class is called child or subclass.
+
+
+Multiple inheritance
+---------------------
+To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
+Consider a scenario where A, B, and C are three classes. The C class inherits A and B classes. If A and B classes have the same method and you call it from child class object, there will be ambiguity to call the method of A or B class.
+
+Since compile-time errors are better than runtime errors, Java renders compile-time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error.
+
+package TestPackage;
+
+class A
+{
+	void method()
+	{
+		System.out.println("i am Class A method");
+	}
+	
+}
+class B
+{
+	void method()
+	{
+		System.out.println("i am Class B method");
+	}
+	
+	
+}
+class C extends A,B//syntax error
+{
+	
+}
+
+public class inheritanceDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		C pa=new C();
+		pa.method();
+		
+	}
+
+}
+
+
+
+Polymorphism:
+------------- 
+Same name with different forms is the concept of polymorphism. 
+
+Polymorphism is derived from 2 Greek words:
+ poly and morphs. 
+The word "poly" means many and "morphs" means forms. 
+So polymorphism means many forms.
+
+
+Example 1: We can use same abs() method for int type, long type, float type etc. 
+Example:
+1) abs(int) 
+2) abs(long) 
+3) abs(float) 
+
+Example 2: We can use the same List reference to hold ArrayList object, LinkedList object, 
+Vector object, or Stack object. 
+
+Example:
+1) List l=new ArrayList(); 
+2) List l=new LinkedList(); 
+3) List l=new Vector(); 
+4) List l=new Stack(); 
+
+
+
+
+
+Beautiful definition of polymorphism:
+
+• A boy starts love with the word friendship, but girl ends love with the same word 
+friendship, word is the same but with different attitudes. This concept is nothing but 
+polymorphism. 
+
+
+ Polymorphism talks about flexibility. 
+
+There are two types of polymorphism in Java:
+ -------------------------------------------
+compile-time polymorphism  (method overloading)or Static Binding
+runtime polymorphism.    (method overriding) or Dynamic Binding
+
+We can perform polymorphism in java by method overloading and method overriding.
+
+
+method overloading
+------------------
+If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+
+
+A class can have methods with same name  but different parameters.
+
+Difference in parameters should satify any of the one
+---------------------------------------------------------
+1.Types of arguments.
+
+2.Number of arguments
+
+3.Order of arguments.
+
+Example
+----------
+package com.mypack;
+
+
+
+class parent
+{
+
+    public void m1()
+    {
+        System.out.println("No arguments");
+    }
+
+    public void m1(int a,String b)
+    {
+        System.out.println("Two Arguments with different data type"+a+" "+b);
+    }
+    public void m1(int a,int b)
+    {
+        System.out.println("Two Arguments with same data type"+a+" "+b);
+    }
+    //order of arguments is important   
+    
+
+
+}
+
+
+public class PolyDemo {
+    public static void main(String[] args) {
+        parent p=new parent();
+        p.m1();
+        p.m1(12,"hii");
+        p.m1(1,2);
+    }
+}
+
+
+
+
+
+Example
+--------
+package com.mypack;
+
+
+
+class MethodOverloading
+{
+    public void m1()
+    {
+        System.out.println("No arguments");
+    }
+    public void m1(int a)
+    {
+        System.out.println("One Argument");
+    }
+    public void m1(int a,String b)
+    {
+        System.out.println("Two Arguments");
+    }
+    
+    
+    
+}
+
+
+public class PolyDemo {
+    
+    public static void main(String[] args) {
+        MethodOverloading ob=new MethodOverloading();
+        ob.m1();
+        ob.m1(12);
+        ob.m1(10,"test");
+    }
+}
+
+
+
+method overriding
+------------------
+If subclass (child class) has the same method as declared in the parent class, it is known as method overriding in Java.
+
+Usage of Java Method Overriding
+--------------------------------
+Method overriding is used to provide the specific implementation of a method which is already provided by its superclass.
+
+Method overriding is used for runtime polymorphism.
+
+Rules for Java Method Overriding.
+--------------------------------
+The method must have the same name as in the parent class
+The method must have the same parameter as in the parent class.
+There must be an IS-A relationship (inheritance).
+
+
+Example 1
+------------
+package com.mypack;
+
+
+class parent1
+{
+  public void myMethod(int a)
+  {
+      System.out.println("Parent Method"+" "+a);
+  }
+
+}
+class child extends parent1
+{
+    public void myMethod(int a)
+    {
+        System.out.println("child method"+" "+a);
+    }
+
+}
+class child1 extends parent1{
+    public void myMethod(int a)
+    {
+        System.out.println("child1 method"+" "+a);
+    }
+}
+
+
+
+
+public class MethodOverrideDemo {
+    public static void main(String[] args) {
+   parent1 ob=new child();//dynamic
+   parent1 ob1=new child1();//parent reference child object
+//   child1 ob2=new parent1();
+   ob.myMethod(12);
+   ob1.myMethod(13);
+    }
+}
+
+
+Example 2
+----------
+package com.mypack;
+
+class Bank
+{
+    public int rateofInterest()
+    {
+        return 0;
+    }
+
+}
+class SBI extends Bank{
+    public int rateofInterest()
+    {
+        return 10;
+    }
+
+}
+class Indian extends SBI
+{
+    public int rateofInterest()
+    {
+        return 9;
+    }
+}
+
+
+public class MethodOverridingDemooo {
+    public static void main(String[] args) {
+        SBI sbi=new SBI();
+        Bank b=new Indian();
+        System.out.println(sbi.rateofInterest());
+        System.out.println(b.rateofInterest());
+
+
+    }
+}
+
+
+Inheritance
+-----------
+Inheritance in Java is a mechanism in which one object acquires all the properties and behaviors of a parent object. 
+
+It is an important part of OOPs (Object Oriented programming system).
+
+Why use inheritance in java?
+----------------------------
+For Method Overriding (so runtime polymorphism can be achieved).
+For Code Reusability.
+
+Types of inheritance in java
+-----------------------------
+Single
+Multilevel 
+Hierarchical
+Hybrid
+Multiple
+
+In java programming, multiple and hybrid inheritance is supported through interface only.
+
+
+The syntax of Java Inheritance
+------------------------------
+class Subclass-name extends Superclass-name  
+{  
+   //methods and fields  
+}  
+The extends keyword indicates that you are making a new class that derives from an existing class. The meaning of "extends" is to increase the functionality.
+In the terminology of Java, a class which is inherited is called a parent or superclass, and the new class is called child or subclass.
+
+
+Single inheritance
+------------------
+A class inherits from only one parent class..
+
+Syntax
+--------
+
+class parent
+{
+//parent properties
+}
+class child extends parent
+{
+//child properties
+}
+
+
+Example
+--------
+package com.mypack2;
+
+class Parent
+{
+    String pName="Pname";
+    public void pMethod()
+    {
+        System.out.println("Pmethod");
+    }
+
+
+}
+class Child extends Parent
+{
+    String cName="ChildName";
+    public void cMethod()
+    {
+        System.out.println("Child Method");
+    }
+
+
+}
+
+
+
+
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        Child ch=new Child();
+        System.out.println(ch.cName+" "+ch.pName);
+        ch.cMethod();
+        ch.pMethod();
+
+    }
+}
+
+
+Multilevel
+-------------
+package com.mypack2;
+
+class Grandparent
+{
+    String gP="Gp";
+    public void gPmethod()
+    {
+        System.out.println("gPmethod");
+    }
+
+}
+
+
+class Parent extends Grandparent
+{
+    String pName="Pname";
+    public void pMethod()
+    {
+        System.out.println("Pmethod");
+    }
+
+
+}
+class Child extends Parent
+{
+    String cName="ChildName";
+    public void cMethod()
+    {
+        System.out.println("Child Method");
+    }
+
+
+}
+
+
+
+
+public class InheritanceDemo {
+    public static void main(String[] args) {
+        Child ch=new Child();
+        System.out.println(ch.cName+" "+ch.pName+" "+ch.gP);
+        ch.cMethod();
+        ch.pMethod();
+        ch.gPmethod();
+
+    }
+}
+
+
+Hierarchical
+--------------
+Multiple classes inherit from a single parent class..
+
+package com.mypack2;
+
+
+class Animal
+{
+    void eat()
+    {
+        System.out.println("Animal is eating");
+    }
+
+}
+
+class Dog extends Animal{
+    public void bark()
+    {
+        System.out.println("Dog is barking");
+    }
+
+}
+class Cat extends Animal{
+    public void meow()
+    {
+        System.out.println("Cat is meowing");
+    }
+
+}
+
+
+public class HierarchicalDemo {
+    public static void main(String[] args) {
+   Cat c=new Cat();
+   c.meow();
+   c.eat();
+   
+    }
+}
+
+Hybrid
+-------
+Hybrid is combination of two or more types of inheritance...
+
+
+
+
+Multiple inheritance
+---------------------
+To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
+
+Consider a scenario where A, B, and C are three classes. The C class inherits A and B classes. If A and B classes have the same method and you call it from child class object, there will be ambiguity to call the method of A or B class.
+
+Since compile-time errors are better than runtime errors, Java renders compile-time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error.
+
+Example
+--------
+package com.mypack2;
+
+
+class A
+{
+    public void m1()
+    {}
+    
+}
+class B
+{
+    public void m1()
+    {}
+    
+    
+}
+class C extends A,B
+{}
+
+
+public class MultipleDemo {
+    public static void main(String[] args) {
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+super keyword
+---------------
+Used to access members (variables/methods/constructors) of the parent class.
+
+Common uses:
+----------------
+Call parent class constructor: super();
+
+Access parent class method: super.methodName();
+
+Access parent class variable: super.variableName;
+
+
+
+Notes:
+-----------
+super() must be the first line in the constructor if used.
+
+If no super() is written, Java inserts it automatically (for default constructors).
+
+Cannot use super in a static context (it works with object context only).
+
+Example
+--------
+package com.mypack2;
+
+
+class Employee
+{
+    public Employee()
+    {
+        System.out.println("Employee Constructor");
+    }
+
+    String company="TCS";
+    void display()
+    {
+        System.out.println("Employee in company");
+    }
+
+}
+class Developer extends Employee{
+
+    String company="Infosys";
+
+    public Developer() {
+        super();//parent constructor
+
+        System.out.println("Developer Constructor");
+
+    }
+
+    void show()
+    {
+        System.out.println(super.company);//parent variable
+        super.display();//parent method
+    }
+
+}
+
+
+
+public class KeywordDemo {
+    public static void main(String[] args) {
+        Developer de=new Developer();
+       de.show();
+
+    }
+}
+
+
+final keyword
+-------------
+Used to restrict modification.
+
+Can be applied to variables, methods, or classes.
+
+
+final variable
+---------------
+
+cannot be changed
+
+Example
+----------
+package com.mypack2;
+
+
+class p
+{
+    final int n=12;//final variable
+    final double PI=3.141;
+}
+
+
+public class FinalKeywordDemo {
+    public static void main(String[] args) {
+        p o=new p();
+        o.n=12;//cannot change
+        System.out.println(o.n);
+
+    }
+}
+
+final method
+-------------
+Method cannot be overridden
+
+Example
+--------
+package com.mypack2;
+
+
+class p
+{
+    final int n=12;//final variable
+    final double PI=3.141;
+    public final void m1()
+    {
+        System.out.println("Final method");
+    }
+    
+}
+class c extends p
+{
+    public final void m1()//final method cannot override
+    {
+        System.out.println("Final method");
+    }
+}
+
+
+
+public class FinalKeywordDemo {
+    public static void main(String[] args) {
+        p o=new p();
+       // o.n=12;//cannot change
+        System.out.println(o.n);
+
+    }
+}
+
+final class
+------------
+class cannot be inherited
+
+
+Example
+--------
+package com.mypack2;
+
+
+final class p
+{
+    final int n=12;//final variable
+    final double PI=3.141;
+    public final void m1()
+    {
+        System.out.println("Final method");
+    }
+
+}
+class c extends p//cannot inherit final class
+{
+    
+}
+
+
+
+public class FinalKeywordDemo {
+    public static void main(String[] args) {
+        p o=new p();
+       // o.n=12;//cannot change
+        System.out.println(o.n);
+
+    }
+}
+
+Where Used
+-----------
+To define configuration constants
+To secure logic from modification
+
+
+
+static keyword
+----------------
+
+The static keyword is used for memory management.
+It means the variable, method, block, or class belongs to the class, not to any object.
+
+Where can we use static?
+
+Static variable
+
+Static method
+
+Static block
+
+Static class (only inner class)
+
+
+
+Why use static?
+
+To save memory.
+
+To call methods/variables without creating an object.
+
+
+Static Variable
+-------------------
+Shared by all objects of the class.
+
+Saves memory because it is created only once.
+
+
+
+
+Static Method
+---------------
+Can be called without creating an object.
+
+Can only access static variables and static methods directly.
+
+Cannot use this keyword.
+
+
+Static Block
+-------------
+Runs only once when the class is loaded.
+
+Used to initialize static variables.
+
+
+
+
+Abstraction 
+-----------
+
+Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+
+Another way, it shows only essential things to the user and hides the internal details, for example, sending SMS where you type the text and send the message. You don't know the internal processing about the message delivery.
+
+How is Abstraction Achieved in Java?
+
+Abstract Class
+Interface
+
+Abstract Classes and Methods
+----------------------------
+Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
+
+
+
+Why use Abstraction?
+
+To reduce complexity.
+
+To increase code reusability and maintainability.
+
+To provide security by hiding internal logic.
+
+
+Example
+--------
+package com.mypack1;
+
+abstract class Myclass
+{
+    //variables
+   final int n=10;
+    //methods
+   abstract void mymethod();
+    void mymethod1()
+    {
+        System.out.println("This is mymethod1");
+        System.out.println(n);
+    }
+
+}
+class child1 extends Myclass
+{
+//    @Override
+    void mymethod() {
+        System.out.println("This is child mymethod");
+    }
+}
+
+
+public class AbstractionDemo {
+    public static void main(String[] args) {
+        child1 ob=new child1();
+       // ob.mymethod();
+        ob.mymethod1();
+    }
+}
+
+
+Example
+--------
+package com.mypack1;
+
+abstract class Myclass
+{
+    //variables
+    int n;
+
+    public Myclass(int n) {
+        this.n = n;
+    }
+
+    //methods
+   abstract void mymethod();
+    void mymethod1()
+    {
+        System.out.println("This is mymethod1");
+        System.out.println(n);
+    }
+
+}
+class child1 extends Myclass
+{
+    public child1(int n) {
+        super(n);
+    }
+
+    //    @Override
+    void mymethod() {
+        System.out.println("This is child mymethod");
+    }
+}
+class child2 extends Myclass
+{
+
+    public child2(int n) {
+        super(n);
+    }
+
+    @Override
+    void mymethod() {
+        System.out.println("child2 method");
+    }
+}
+
+
+public class AbstractionDemo {
+    public static void main(String[] args) {
+        child1 ob=new child1(10);
+       // ob.mymethod();
+        ob.mymethod1();
+        child2 ob1=new child2(20);
+        ob1.mymethod();
+
+
+     //   Myclass ob=new Myclass();//can't create object of abstract class
+    }
+}
+
+API
+----
+
+Interface
+---------------
+It is a blueprint of a class.
+
+All methods are abstract by default (Java 7).
+
+From Java 8, can also have default and static methods.
+
+Supports multiple inheritance.
+
+100% abstraction achieved
+
+
+We cannot create object for interface.
+
+implements is the keyword used in Interface.
+
+syntax
+----------
+
+interface interfaceName{
+
+variables;  //public static final constants
+
+abstract methods;
+
+default/static methods {//java 8
+//statements;
+
+}
+
+}
+
+Example
+--------
+interface coach
+{
+    
+    public  String getDailyWorkout();
+    
+}
+class CricketCoach implements coach
+{
+    public  String getDailyWorkout()
+    {
+        return "Practice fast bowling for 10 mints";
+    }
+    
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    //CricketCoach cc=new CricketCoach();
+	    coach mycoach=new CricketCoach();
+	    
+		System.out.println(mycoach.getDailyWorkout());
+	}
+}
+
+
+
+
+
+
+Using IDE
+----------
+
+public interface Coach 
+{
+    public  String getDailyWorkout();
+
+}
+
+
+public class CricketCoach implements  Coach{
+    @Override
+    public String getDailyWorkout() {
+        return "Practice fast bowling for 10 mints";
+    }
+}
+
+package com.mypack1;
+
+public class BaseBallCoach implements Coach{
+    @Override
+    public String getDailyWorkout() {
+        return "Practice";
+    }
+}
+
+package com.mypack1;
+
+public class InterfaceDEmo {
+    public static void main(String[] args) {
+        CricketCoach cc=new CricketCoach();
+        System.out.println(cc.getDailyWorkout());
+
+    }
+
+}
+
+
+
+
+
+
+Ex
+----
+package com.mypack1;
+
+
+interface Myinterface{
+  public static final int a=10; //public static final
+    public abstract void abstractMethod();//abstract method
+
+    public static void staticMethod()//static method
+    {
+        System.out.println("static method");
+    }
+    public default void defaultMethod()//default method
+    {
+        System.out.println("Default method");
+    }
+
+
+}
+
+class Myclass1 implements Myinterface
+{
+
+    @Override
+    public void abstractMethod() {
+        System.out.println("Abstract method");
+    }
+}
+
+
+
+public class InterfaceDEmoo {
+    public static void main(String[] args) {
+
+        Myclass1 ob=new Myclass1();
+        ob.abstractMethod();
+        ob.defaultMethod();
+        Myinterface.staticMethod();
+        
+        System.out.println(Myinterface.a);
+
+
+
+    }
+}
+
+
+
+
+Why Java doesn’t support multiple inheritance with classes:
+------------------------------------------------------------
+To avoid diamond problem and ambiguity.
+
+Example: Two parent classes having the same method — child class won’t know which one to inherit.
+
+
+Interfaces support multiple inheritance
+
+
+Example
+--------
+package com.mypack1;
+
+interface A1
+{
+    void show();
+
+}
+interface B1
+{
+    void display();
+
+}
+class child implements A1,B1
+{
+    
+    @Override
+    public void show() {
+        System.out.println("Show from A1");
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Display from B1");
+
+    }
+}
+
+
+public class InterfaceDEmoo {
+    public static void main(String[] args) {
+
+        child ob=new child();
+        ob.show();
+        ob.display();
+        
+
+    }
+}
+
+
+
+Ex 2
+-------
+package com.mypack1;
+
+interface A1
+{
+    void show();
+
+}
+interface B1
+{
+    void show();
+
+}
+class child implements A1,B1
+{
+
+    @Override
+    public void show() {
+        System.out.println("Show from A1");
+    }
+
+
+}
+
+
+public class InterfaceDEmoo {
+    public static void main(String[] args) {
+
+        child ob=new child();
+        ob.show();
+
+
+
+    }
+}
+
+
+
+If two interfaces have the same default method:
+------------------------------------------------
+Example
+---------
+interface A {
+    default void show() {
+        System.out.println("A's show method");
+    }
+}
+
+interface B {
+    default void show() {
+        System.out.println("B's show method");
+    }
+}
+
+class C implements A, B {
+    public void show() {
+        A.super.show(); // or B.super.show();
+        System.out.println("C's own show method");
+    }
+}
+
+Example
+--------
+package com.mypack1;
+
+interface A1
+{
+    default void show()
+   {
+       System.out.println("Default method from A1 ");
+   }
+   public void  method1();
+
+
+
+
+}
+interface B1
+{
+    default void show()
+    {
+        System.out.println("Default method from B1 ");
+    }
+
+}
+class child122 implements A1,B1
+{
+    @Override
+    public void show() {
+        A1.super.show();
+        System.out.println("Child default method");
+    }
+
+    @Override
+    public void method1() {
+        System.out.println("Abstract method");
+    }
+
+//    @Override
+//    public void show() {
+//        System.out.println("Show from A1");
+//    }
+
+//    public void show()
+//    {
+//        A1.super.show();
+//        System.out.println("Show from B1");
+//    }
+
+}
+
+
+public class InterfaceDEmoo {
+    public static void main(String[] args) {
+        child122 ob=new child122();
+        ob.show();
+        ob.method1();
+
+
+
+    }
+}
+
+
+
+
+
+
+
+Same Abstract Method in Multiple Interfaces:
+Allowed: No conflict
+
+
+package com.mypack1;
+
+interface A1
+{
+    void show();
+
+}
+interface B1
+{
+    void show();
+
+}
+class child implements A1,B1
+{
+
+    @Override
+    public void show() {
+        System.out.println("Show from A1");
+    }
+
+
+}
+
+
+public class InterfaceDEmoo {
+    public static void main(String[] args) {
+
+        child ob=new child();
+        ob.show();
+
+
+
+    }
+}
+
+
+
+Different Return Types – Not Allowed
+
+Causes compilation error:
+
+
+
+Covariant Return Type – Allowed
+Valid if one return type is subtype of another:
+Example
+--------
+package com.mypack1;
+
+interface A1
+{
+
+   public Object  method1(int a);
+
+
+
+
+}
+interface B1
+{
+    public Integer method1(int a);
+
+}
+class child122 implements A1,B1
+{
+
+    @Override
+    public Integer method1(int a) {
+        return a;
+    }
+
+
+}
+
+
+public class InterfaceDEmoo {
+    public static void main(String[] args) {
+        child122 ob=new child122();
+        System.out.println(ob.method1(10));
+
+
+
+    }
+}
+
+
+
+Object----> String,Integer,Float,Character
+
+Polymorphism:
+------------- 
+Same name with different forms is the concept of polymorphism. 
+
+Polymorphism is derived from 2 Greek words:
+ poly and morphs. 
+The word "poly" means many and "morphs" means forms. 
+So polymorphism means many forms.
+
+
+Example 1: We can use same abs() method for int type, long type, float type etc. 
+Example:
+1) abs(int) 
+2) abs(long) 
+3) abs(float) 
+
+Example 2: We can use the same List reference to hold ArrayList object, LinkedList object, 
+Vector object, or Stack object. 
+
+Example:
+1) List l=new ArrayList(); 
+2) List l=new LinkedList(); 
+3) List l=new Vector(); 
+4) List l=new Stack(); 
+
+
+
+
+
+Beautiful definition of polymorphism:
+
+• A boy starts love with the word friendship, but girl ends love with the same word 
+friendship, word is the same but with different attitudes. This concept is nothing but 
+polymorphism. 
+
+
+ Polymorphism talks about flexibility. 
+
+There are two types of polymorphism in Java:
+ -------------------------------------------
+compile-time polymorphism  
+runtime polymorphism. 
+
+We can perform polymorphism in java by method overloading and method overriding.
+
+
+method overloading
+------------------
+If a class has multiple methods having same name but different in parameters, it is known as Method Overloading.
+
+
+A class can have methods with same name  but different parameters.
+
+Difference in parameters should satify any of the one
+---------------------------------------------------------
+1.Types of arguments.
+
+2.Number of arguments
+
+3.Order of arguments.
+
+Example
+----------
+package com.mypack;
+
+
+
+class parent
+{
+
+    public void m1()
+    {
+        System.out.println("No arguments");
+    }
+
+    public void m1(int a,String b)
+    {
+        System.out.println("Two Arguments with different data type"+a+" "+b);
+    }
+    public void m1(int a,int b)
+    {
+        System.out.println("Two Arguments with same data type"+a+" "+b);
+    }
+    //order of arguments is important   
+    
+
+
+}
+
+
+public class PolyDemo {
+    public static void main(String[] args) {
+        parent p=new parent();
+        p.m1();
+        p.m1(12,"hii");
+        p.m1(1,2);
+    }
+}
+
+
+
+method overriding
+------------------
+If subclass (child class) has the same method as declared in the parent class, it is known as method overriding in Java.
+
+Usage of Java Method Overriding
+--------------------------------
+Method overriding is used to provide the specific implementation of a method which is already provided by its superclass.
+
+Method overriding is used for runtime polymorphism.
+
+Rules for Java Method Overriding.
+--------------------------------
+The method must have the same name as in the parent class
+The method must have the same parameter as in the parent class.
+There must be an IS-A relationship (inheritance).
+
+
+Example 1
+------------
+package com.mypack;
+
+
+class parent1
+{
+  public void myMethod(int a)
+  {
+      System.out.println("Parent Method"+" "+a);
+  }
+
+}
+class child extends parent1
+{
+    public void myMethod(int a)
+    {
+        System.out.println("child method"+" "+a);
+    }
+
+}
+class child1 extends parent1{
+    public void myMethod(int a)
+    {
+        System.out.println("child1 method"+" "+a);
+    }
+}
+
+
+
+
+public class MethodOverrideDemo {
+    public static void main(String[] args) {
+   parent1 ob=new child();//dynamic
+   parent1 ob1=new child1();//parent reference child object
+//   child1 ob2=new parent1();
+   ob.myMethod(12);
+   ob1.myMethod(13);
+    }
+}
+
+
+Example 2
+----------
+package com.mypack;
+
+class Bank
+{
+    public int rateofInterest()
+    {
+        return 0;
+    }
+
+}
+class SBI extends Bank{
+    public int rateofInterest()
+    {
+        return 10;
+    }
+
+}
+class Indian extends Bank
+{
+    public int rateofInterest()
+    {
+        return 9;
+    }
+}
+
+
+public class MethodOverridingDemooo {
+    public static void main(String[] args) {
+        SBI sbi=new SBI();
+        Bank b=new Indian();
+        System.out.println(sbi.rateofInterest());
+        System.out.println(b.rateofInterest());
+
+
+    }
+}
+
+static keyword
+----------------
+
+The static keyword is used for memory management.
+It means the variable, method, block, or class belongs to the class, not to any object.
+
+Where can we use static?
+
+Static variable
+
+Static method
+
+Static block
+
+Static class (only inner class)
+
+
+
+Why use static?
+
+To save memory.
+
+To call methods/variables without creating an object.
+
+
+Static Variable
+-------------------
+Shared by all objects of the class.
+
+Saves memory because it is created only once.
+
+
+Example
+-------
+class Employeee
+{
+    String ename;
+    int eid;
+   static String ceo="Rajesh";
+}
+
+
+
+Static Method
+---------------
+Can be called without creating an object.
+
+Can only access static variables and static methods directly.
+
+Cannot use this keyword.
+
+
+Example
+---------
+public static void show()//static method
+    {
+        System.out.println("Static method and ceo is "+ceo);
+    }
+
+
+
+package com.mypack2;
+
+
+class Employeee
+{
+    String ename;//instance variable
+    int eid;//instance variable
+   static String ceo="Rajesh";//static variable
+
+    public Employeee(String ename, int eid) {
+        this.ename = ename;
+        this.eid = eid;
+
+    }
+
+    public void display()
+    {
+        System.out.println(ename+" "+eid);
+    }
+    public static void show()//static method
+    {
+        System.out.println("Static method and ceo is "+ceo);
+    }
+
+}
+
+
+
+
+
+public class StaticKeyword {
+
+   public static void main(String[] args) {
+
+       Employeee e1=new Employeee("Test",12);
+       e1.display();
+       Employeee.show();//static method call
+    }
+}
+
+
+Static Block
+-------------
+Runs only once when the class is loaded.
+
+Used to initialize static variables.
+
+Example
+--------
+static//static block
+    {
+        ceo="Mani";
+        System.out.println("Static block");
+    }
+
+
+
+package com.mypack2;
+
+
+class Employeee
+{
+    String ename;//instance variable
+    int eid;//instance variable
+   static String ceo="Rajesh";//static variable
+    static//static block
+    {
+        ceo="Mani";
+        System.out.println("Static block");
+    }
+
+
+    public Employeee(String ename, int eid) {
+        this.ename = ename;
+        this.eid = eid;
+
+    }
+
+    public void display()
+    {
+        System.out.println(ename+" "+eid);
+    }
+    public static void show()//static method
+    {
+        System.out.println("Static method and ceo is "+ceo);
+    }
+
+}
+
+
+
+
+
+public class StaticKeyword {
+
+   public static void main(String[] args) {
+
+       Employeee e1=new Employeee("Test",12);
+       Employeee e2=new Employeee("Test123",13);
+
+       e1.display();
+       Employeee.show();//static method call
+    }
+}
+
+
+
+----------------------------------------------------------------
+
+
+Abstraction 
+-----------
+
+Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+
+Another way, it shows only essential things to the user and hides the internal details, for example, sending SMS where you type the text and send the message. You don't know the internal processing about the message delivery.
+
+How is Abstraction Achieved in Java?
+
+Abstract Class
+Interface
+
+Abstract Classes and Methods
+----------------------------
+Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
+
+
+
+Why use Abstraction?
+
+To reduce complexity.
+
+To increase code reusability and maintainability.
+
+To provide security by hiding internal logic.
+
+Example
+--------
+package com.mypack2;
+
+abstract class Payment
+{
+
+    abstract void pay();//abstract method
+    public void transactionID()//Non-abstract method
+    {
+        System.out.println("Transaction ID"+" "+System.currentTimeMillis());
+    }
+
+}
+class GooglePay extends Payment
+{
+    @Override
+    void pay() {
+        System.out.println(" Paying using GooglePay");
+    }
+    void googlePay_transactionID() {
+        System.out.println("GooglePay Transaction ID"+" "+System.currentTimeMillis());
+    }
+}
+
+
+
+public class PaymentApp {
+    public static void main(String[] args) {
+
+        GooglePay Gp=new GooglePay();
+        Gp.pay();
+        Gp.transactionID();
+        Gp.googlePay_transactionID();
+    }
+}
+
+
+Example 2
+----------
+package com.mypack2;
+
+abstract class Payment
+{
+
+    abstract void pay(int amount);//abstract method
+    int amount;//instance variable
+
+    public Payment() {
+       System.out.println("Payment class constructor");
+    }
+
+    public void transactionID()//Non-abstract method
+    {
+        System.out.println("Transaction ID"+" "+System.currentTimeMillis());
+    }
+
+}
+class GooglePay extends Payment
+{
+    public GooglePay() {
+        super();
+        System.out.println("GooglePay class constructor");
+    }
+
+    @Override
+    void pay(int amount) {
+        System.out.println(" Paying using GooglePay"+amount);
+    }
+    void googlePay_transactionID() {
+        System.out.println("GooglePay Transaction ID"+" "+System.currentTimeMillis());
+    }
+}
+class PhonePe extends Payment
+{
+    public PhonePe() {
+        super();
+        System.out.println("PhonePe class constructor");
+    }
+
+    @Override
+    void pay(int amount) {
+        System.out.println(" Paying using PhonePe"+amount);
+    }
+}
+
+
+public class PaymentApp {
+    public static void main(String[] args) {
+
+        GooglePay Gp=new GooglePay();
+        Gp.pay(12000);
+        Gp.transactionID();
+        Gp.googlePay_transactionID();
+
+        PhonePe Pp=new PhonePe();
+        Pp.pay(13000);
+    }
+}
+
+
+API  ----> Application Programming Interface
+----
+
+Interface
+---------------
+It is a blueprint of a class.
+
+All methods are abstract by default (Java 7).
+
+From Java 8, can also have default and static methods.
+
+Supports multiple inheritance.
+
+100% abstraction achieved
+
+
+We cannot create object for interface.
+
+implements is the keyword used in Interface.
+    
+//interface cannot have constructor
+
+
+syntax
+----------
+
+interface interfaceName{
+
+variables;  //public static final constants
+
+abstract methods;
+
+default/static methods {//java 8
+//statements;
+
+}
+
+}
+
+
+Example
+--------
+package com.mypack2;
+
+
+interface Student
+{
+    void study();
+
+}
+class EngineeringStudent implements Student
+{
+
+    @Override
+    public void study() {
+        System.out.println("Engineering student is studying Java");
+    }
+}
+
+
+public class InterfaceDemo {
+    public static void main(String[] args) {
+
+        //Student s=new Student();//'Student' is abstract; cannot be instantiated
+        EngineeringStudent es=new EngineeringStudent();
+        es.study();
+    }
+}
+
+
+Example 2
+----------
+package com.mypack2;
+
+
+interface Student
+{
+
+   public static final String name="Rahul";
+    //interface cannot have constructor
+    void study();
+
+    default void attendance()//default method for interface
+    {
+        System.out.println("Attendance is 100%");
+    }
+
+    static void fees()//static method common for all
+    {
+        System.out.println("Fees is 10000");
+    }
+
+
+
+}
+class EngineeringStudent implements Student
+{
+
+    @Override
+    public void study() {
+        System.out.println("Engineering student is studying Java");
+    }
+}
+class MedicalStudent implements Student
+{
+
+    @Override
+    public void study() {
+        System.out.println("Medical student is studying Anatomy");
+    }
+}
+
+
+public class InterfaceDemo {
+    public static void main(String[] args) {
+
+        //Student s=new Student();//'Student' is abstract; cannot be instantiated
+        Student es=new EngineeringStudent();//Parent class reference child class object
+        System.out.println("-------Engineering Student---------");//Accessing static variable
+        es.study();
+        System.out.println(Student.name);//Accessing static variable
+        es.attendance();//default method call
+        Student.fees();//static method call
+
+        System.out.println("------Medical Student---------");
+        Student ms=new MedicalStudent();//Parent class reference child class object
+
+        ms.study();
+        ms.attendance();
+        Student.fees();//static method call
+    }
+}
+
+
+Output
+-------
+-------Engineering Student---------
+Engineering student is studying Java
+Rahul
+Attendance is 100%
+Fees is 10000
+------Medical Student---------
+Medical student is studying Anatomy
+Attendance is 100%
+Fees is 10000
+
+Why Java doesn’t support multiple inheritance with classes:
+------------------------------------------------------------
+To avoid diamond problem and ambiguity.
+
+Example: Two parent classes having the same method — child class won’t know which one to inherit.
+
+
+Interfaces support multiple inheritance
+
+
+Example
+--------
+package com.mypack2;
+
+interface A1{
+    void show();
+}
+interface B1 {
+    void show1();
+
+}
+class c1 implements A1,B1
+{
+
+    @Override
+    public void show() {
+        System.out.println("A1 Interface");
+    }
+
+    @Override
+    public void show1() {
+        System.out.println("B1 Interface");
+
+    }
+}
+
+
+
+public class MultipleInheritanceInterfaceDemo {
+    public static void main(String[] args) {
+        c1 c=new c1();
+        c.show();
+        c.show1();
+    }
+}
+
+
+
+Same Abstract Method in Multiple Interfaces:
+Allowed: No conflict
+
+--------
+Example
+--------
+
+package com.mypack2;
+
+interface A1{
+    void show();
+}
+interface B1 {
+    void show();
+
+}
+class c1 implements A1,B1
+{
+
+    @Override
+    public void show() {
+        System.out.println("A1 Interface");
+    }
+
+
+}
+
+
+
+public class MultipleInheritanceInterfaceDemo {
+    public static void main(String[] args) {
+        c1 c=new c1();
+        c.show();
+
+    }
+}
+
+
+interface A1{
+    void show();
+}
+interface B1 extends A1{ 
+    void show();
+
+}
+
+
+
+
+
+Polymorphism:
+------------- 
+poly--> many
+morph-->form
+
+Definition: One name, many forms.
+
+Derived from: Greek words “poly” (many) and “morphs” (forms).
+
+Purpose: Flexibility in behavior.
+
+Types of Polymorphism in Java:
+-------------------------------
+Compile-time polymorphism (Method Overloading / Static Binding)
+
+Runtime polymorphism (Method Overriding / Dynamic Binding)
+
+
+
+Method Overloading
+----------------------
+Same method name with different parameters in the same class.
+
+Difference in:
+
+Type of arguments
+
+Number of arguments
+
+Order of arguments
+
+Return Type: Not considered in overloading
+
+Modifiers: Can overload static, final, private methods 
+
+Example
+-------
+package com.mypack2;
+
+
+
+class  methodOverloading{
+    public void m1()
+    {
+        System.out.println("No argument");
+    }
+    public void m1(int a)
+    {
+        System.out.println("One argument");
+    }
+    public void m1(int a,double b) {
+        System.out.println("different type of arguments");
+    }
+    public void m1(double a,int b) {
+        System.out.println("different order arguments");
+    }
+}
+
+public class PolyDemo {
+    public static void main(String[] args) {
+        methodOverloading obj=new methodOverloading();
+        obj.m1();
+        obj.m1(12);
+        obj.m1(12,12.0);
+        obj.m1(12.0,12);
+    }
+}
+
+Example
+--------
+package com.mypack2;
+
+
+
+class calculator
+{
+    public int add(int a ,int b)
+    {
+        return a+b;
+    }
+    public double add(double a ,double b) {
+        return a+b;
+
+    }
+
+}
+
+
+public class PolyDemo {
+    public static void main(String[] args) {
+        calculator obj=new calculator();
+        System.out.println(obj.add(10,20));
+        System.out.println(obj.add(10.0,20.0));
+    }
+}
+
+
+static method can be overloaded
+-----------------------------------
+package com.mypack2;
+
+
+
+class calculator
+{
+    public static int add(int a ,int b)
+    {
+        return a+b;
+    }
+    public static double add(double a ,double b) {
+        return a+b;
+
+    }
+
+}
+
+
+public class PolyDemo {
+    public static void main(String[] args) {
+//        calculator obj=new calculator();
+        System.out.println(calculator.add(10,20));
+        System.out.println(calculator.add(10.0,20.0));
+    }
+}
+
+final method can be overloaded
+--------------------------------
+package com.mypack2;
+
+
+
+class calculator
+{
+    public final int add(int a ,int b)
+    {
+        return a+b;
+    }
+    public final double add(double a ,double b) {
+        return a+b;
+
+    }
+
+}
+
+
+public class PolyDemo {
+    public static void main(String[] args) {
+        calculator obj=new calculator();
+        System.out.println(obj.add(10,20));
+        System.out.println(obj.add(10.0,20.0));
+    }
+}
+
+
+
+
+
+
+
+
+
+Method Overriding
+--------------------
+Same method in subclass as in parent class.
+
+Used to provide specific implementation (Run-time polymorphism).
+
+Rules:
+-------
+Same method name
+
+Same parameters
+
+IS-A relationship (inheritance)
+
+Return Type: Must be:
+
+Same as parent method 
+
+Or covariant (subclass return type)
+
+
+Example
+--------
+package com.mypack2;
+
+
+
+class ParentClass
+{
+  public void show()
+  {
+      System.out.println("Parent class method");
+  }
+
+
+}
+class ChildClass extends ParentClass
+{
+    public void show()
+    {
+        System.out.println("Child class method");
+    }
+}
+
+
+public class PolyDemo {
+    public static void main(String[] args) {
+        ChildClass obj=new ChildClass();
+        obj.show();
+
+    }
+}
+
+static method and final method cannot be overridden..
+
+static method method hidden is happen
+
+
+package com.mypack2;
+
+
+
+class ParentClass
+{
+  public static void show()
+  {
+      System.out.println("Parent class method");
+  }
+
+
+}
+class ChildClass extends ParentClass
+{
+    public static void show()
+    {
+        System.out.println("Child class method");
+    }
+}
+
+
+public class PolyDemo {
+    public static void main(String[] args) {
+        ParentClass obj=new ChildClass();//parent class reference child class object
+        obj.show();
+
+        ChildClass obj1=new ChildClass();
+        obj1.show();
+
+    }
+}
+
+
+package com.mypack2;
+
+
+
+class ParentClass
+{
+  public Object show()
+  {
+    return 10;
+  }
+
+
+}
+class ChildClass extends ParentClass
+{
+    public String show()
+    {
+       return "Hii";
+    }
+}
+
+
+public class PolyDemo {
+    public static void main(String[] args) {
+        ParentClass obj=new ChildClass();//parent class reference child class object
+//        obj.show();
+        System.out.println(obj.show());
+
+        ChildClass obj1=new ChildClass();//child class reference child class object
+//        obj1.show();
+        System.out.println(obj1.show());
+
+    }
+}
+
+Task
+-----
+
+Bank
+
+rateofInterest
+
+SBI and Indian bank---> child class
+
+method overriding achieve
+
+
+
+
+Access Modifiers
+------------------
+Access modifiers control the visibility (access level) of classes, variables, methods, and constructors. 
+
+They provide a way to implement encapsulation and ensure security and code manageability.
+
+
+1.public - The access is everywhere. Outside the package also.[variables, method, class]
+
+
+
+2.private - The access level is only within the class.[variables, methods]
+
+
+3.protected - Access level is within the package and outside the package through child class only.[variables, methods]
+
+
+4.default - Access level is only within the package.[variables, method, classes]
+
+
+
+Example
+-------
+package com.mypack2;
+
+
+
+
+class AccessModify
+{
+    public int number=10;//public variable
+    private int number1=20;//private variable
+    int number2=30;//default variable
+    protected int number3=40;//protected variable
+
+    public void display()//public method
+    {
+
+        System.out.println("Private variable value is "+number1);
+
+    }
+    void defaultMethod()//default method
+    {
+        System.out.println("Default variable value is "+number2);
+    }
+    protected void protectedMethod()//protected method
+    {
+        System.out.println("Protected variable value is "+number3);
+    }
+
+}
+
+
+public class AccessModifierDemo {
+    public static void main(String[] args) {
+        AccessModify obj=new AccessModify();
+        System.out.println(obj.number);//public variable can be accessed from any class
+        //System.out.println(obj.number1);//private variable can not be accessed from any class
+        System.out.println(obj.number2);//default variable can be accessed from any class
+        System.out.println(obj.number3);//protected variable can be accessed from any class
+       obj.display();
+       obj.defaultMethod();
+       obj.protectedMethod();
+
+    }
+}
+
+
+package com.mypack2;
+
+
+import com.mypack1.*;
+
+public class AccessModifierDemo {
+    public static void main(String[] args) {
+        AccessModify obj=new AccessModify();
+        obj.display();
+
+
+    }
+}
+
+
+package com.mypack1;
+
+public class AccessModify {
+
+    public int number = 10;//public variable
+
+    public void display()//public method
+    {
+        System.out.println("Public variable value is " + number);
+    }
+}
+
+
+output
+-------
+Public variable value is 10
+
+
+
+default
+--------
+
+package com.mypack1;
+
+public class AccessModify {
+
+     int number = 10;// Default variable
+
+
+}
+
+package com.mypack2;
+
+
+import com.mypack1.*;
+
+public class AccessModifierDemo {
+    public static void main(String[] args) {
+        AccessModify obj=new AccessModify();
+        System.out.println(obj.number);
+
+
+    }
+}
+
+output
+--------
+'number' is not public in 'com. mypack1.AccessModify'. Cannot be accessed from outside package
+
+
+
+package com.mypack1;
+
+public class AccessModify {
+
+    protected int number = 10;// Default variable
+
+
+}
+
+
+package com.mypack2;
+
+
+import com.mypack1.*;
+
+public class AccessModifierDemo  extends AccessModify{
+    public static void main(String[] args) {
+        AccessModifierDemo obj=new AccessModifierDemo();
+        System.out.println(obj.number);
+
+
+    }
+}
+
+
+
+Encapsulation
+--------------
+
+Encapsulation in Java is a process of wrapping code and data together into a single unit, for example, a capsule which is mixed of several medicines.
+
+
+The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must:
+declare class variables/attributes as private
+provide public get and set methods to access and update the value of a private variable
+
+private variables can only be accessed within the same class (an outside class has no access to it). However, it is possible to access them if we provide public get and set methods.
+
+The get method returns the variable value, and the set method sets the value.
+
+Syntax for both is that they start with either get or set, followed by the name of the variable, with the first letter in upper case.
+
+Why Encapsulation?
+--------------------
+
+Better control of class attributes and methods
+Class attributes can be made read-only (if you only use the get method), or write-only (if you only use the set method)
+
+Flexible: the programmer can change one part of the code without affecting other parts
+Increased security of data.
+
+
+Example
+--------
+package com.mypack2;
+
+
+
+class Employeeee
+{
+   private int id;
+   private String name;
+   private double salary;
+
+ 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+}
+
+
+public class EncapsulationDemo {
+    public static void main(String[] args) {
+
+        Employeeee e=new Employeeee();
+        Employeeee e1=new Employeeee();
+        e.setId(101);
+        e.setName("Muthu");
+        e.setSalary(10000.00);
+        System.out.println(e.getId());
+        System.out.println(e.getName());
+        System.out.println(e.getSalary());
+        System.out.println("----Employeee 2----");
+
+        e1.setId(102);
+        e1.setName("Kumar");
+        e1.setSalary(20000.00);
+        System.out.println(e1.getId());
+        System.out.println(e1.getName());
+        System.out.println(e1.getSalary());
+
+    }
+}
+
+
+User-Defined Exception
+----------------------- 
+A user-defined exception is a custom error created by the programmer to handle specific conditions in the application that are not covered by Java’s built-in exceptions.
+
+
+Why Need User-Defined Exceptions?
+
+To handle application-specific errors clearly
+(e.g., "InsufficientBalanceException", "InvalidAgeException")
+
+To make error messages more descriptive and meaningful
+
+To improve readability, debugging, and maintenance
+
+To enforce business rules strictly in your code
+
+
+Steps to Develop a User-Defined Exception:
+-------------------------------------------
+Step 1: Create a class that extends Exception or RuntimeException
+Step 2: Throw the exception using throw
+Step 3: Catch the exception using try-catch
+
+
+Example
+--------
+package com.mypack2;
+
+class InvalidAgeException extends Exception{
+
+    public InvalidAgeException() {
+        super();
+    }
+
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+
+
+
+public class UserDefinedException {
+    public static void checkAge(int age) throws InvalidAgeException
+    {
+        if(age<18)
+        {
+            throw new InvalidAgeException("Not Eligible");
+        }
+
+    }
+
+    public static void main(String[] args) throws InvalidAgeException
+    {
+        try
+        {
+            checkAge(17);
+        }
+        catch(InvalidAgeException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+
+
+
+    }
+
+}
